@@ -23,7 +23,7 @@ public class BehaviourTree : MonoBehaviour
         //InitalBehaviour will not start
         startingBehaviour = false;
 
-        _root = new BTnode(this);
+        _root = new BTrepeater(this, new BTSequencer(this, new BTnode[] { (new BTrandomWalk(this)) }));
 
 
     }
