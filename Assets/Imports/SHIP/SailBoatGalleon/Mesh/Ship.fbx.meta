@@ -1,0 +1,223 @@
+fileFormatVersion: 2
+guid: 40ef81b6c93bd524496b60656bbeb343
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Barrel
+    100002: Berth_v1
+    100004: Berth_v2
+    100006: Berth_v3
+    100008: Cannon
+    100010: CannonBall
+    100012: Dinghy
+    100014: Dinghy_Ropes
+    100016: Paddle
+    100018: Props
+    100020: Sailboat
+    100022: //RootNode
+    100024: Wheel
+    100026: Sailboat_2
+    400000: Barrel
+    400002: Berth_v1
+    400004: Berth_v2
+    400006: Berth_v3
+    400008: Cannon
+    400010: CannonBall
+    400012: Dinghy
+    400014: Dinghy_Ropes
+    400016: Paddle
+    400018: Props
+    400020: Sailboat
+    400022: //RootNode
+    400024: Wheel
+    400026: Sailboat_2
+    2100000: Barrel
+    2100002: Berth
+    2100004: Wheel
+    2100006: cannon
+    2100008: boat
+    2100010: No Name
+    2100012: Rope
+    2100014: Ship1
+    2100016: Ship2
+    2100018: Cage
+    2100020: Lamp
+    2100022: Sail
+    2100024: Anchor
+    2300000: Barrel
+    2300002: Berth_v1
+    2300004: Berth_v2
+    2300006: Berth_v3
+    2300008: Cannon
+    2300010: CannonBall
+    2300012: Dinghy
+    2300014: Dinghy_Ropes
+    2300016: Paddle
+    2300018: Sailboat
+    2300020: Wheel
+    2300022: Sailboat_2
+    3300000: Barrel
+    3300002: Berth_v1
+    3300004: Berth_v2
+    3300006: Berth_v3
+    3300008: Cannon
+    3300010: CannonBall
+    3300012: Dinghy
+    3300014: Dinghy_Ropes
+    3300016: Paddle
+    3300018: Sailboat
+    3300020: Wheel
+    3300022: Sailboat_2
+    4300000: CannonBall
+    4300002: Berth_v1
+    4300004: Berth_v2
+    4300006: Berth_v3
+    4300008: Wheel
+    4300010: Barrel
+    4300012: Cannon
+    4300014: Paddle
+    4300016: Dinghy_Ropes
+    4300018: Dinghy
+    4300020: Sailboat
+    4300022: Sailboat_2
+    9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Anchor
+    second: {fileID: 2100000, guid: 23d60bfb6fa2b864c8778eb877a72f8d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Barrel
+    second: {fileID: 2100000, guid: 42d5a4f3bc3851445a2605917b742799, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Berth
+    second: {fileID: 2100000, guid: 1c351d51e3bfd8642b6046593c6475b4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cage
+    second: {fileID: 2100000, guid: 4652e1cc12ff5144fab87a6e59996787, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lamp
+    second: {fileID: 2100000, guid: f3bc3302cd1f7454b9c0bb5f3dae3aaa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rope
+    second: {fileID: 2100000, guid: 984fbc12c609b54438cecae44d5c4755, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sail
+    second: {fileID: 2100000, guid: b67500b2540569c44a16875060a1da87, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ship1
+    second: {fileID: 2100000, guid: 44542f4e7451ae643b84409c613bab48, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ship2
+    second: {fileID: 2100000, guid: 6d92094992fc33940b4de6e07aeb33bc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wheel
+    second: {fileID: 2100000, guid: 6a9520d365a9dea48b694f07dc909bbf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: boat
+    second: {fileID: 2100000, guid: 4b360d9e84d80a84492fc5268f590a9d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cannon
+    second: {fileID: 2100000, guid: 1ce1cd21034ddb94c920ff47945c3233, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
