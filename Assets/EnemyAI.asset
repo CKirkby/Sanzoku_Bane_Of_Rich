@@ -20,11 +20,12 @@ MonoBehaviour:
   - rid: 5851814696149843970
   - rid: 5851814696149843971
   - rid: 5851814696149843972
+  - rid: 5851814698151837696
   treeState: 0
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
-  viewPosition: {x: 486, y: 98, z: 0}
-  viewScale: {x: 0.8695652, y: 0.8695652, z: 1}
+  viewPosition: {x: 375, y: 154, z: 0}
+  viewScale: {x: 0.65751624, y: 0.65751624, z: 1}
   references:
     version: 2
     RefIds:
@@ -34,13 +35,13 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 94f2a8a2-9b1f-4710-a1ea-7580e82ea885
-        position: {x: 0, y: 0}
+        position: {x: -37.030216, y: -133.20216}
         blackboard:
           moveToPosition: {x: 0, y: 0, z: 0}
         description: 
         drawGizmos: 0
         child:
-          rid: 5851814696149843969
+          rid: 5851814698151837696
     - rid: 5851814696149843969
       type: {class: Sequencer, ns: TheKiwiCoder, asm: Assembly-CSharp}
       data:
@@ -97,3 +98,18 @@ MonoBehaviour:
         description: 
         drawGizmos: 0
         duration: 1
+    - rid: 5851814698151837696
+      type: {class: Repeat, ns: TheKiwiCoder, asm: Assembly-CSharp}
+      data:
+        state: 0
+        started: 0
+        guid: 54b969c159c51454789c2a532b6b7bcf
+        position: {x: -158.54024, y: 3.4525166}
+        blackboard:
+          moveToPosition: {x: 0, y: 0, z: 0}
+        description: 
+        drawGizmos: 0
+        child:
+          rid: 5851814696149843969
+        restartOnSuccess: 1
+        restartOnFailure: 0
