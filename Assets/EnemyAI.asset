@@ -17,15 +17,12 @@ MonoBehaviour:
   nodes:
   - rid: 5851814696149843968
   - rid: 5851814696149843969
-  - rid: 5851814696149843970
-  - rid: 5851814696149843971
-  - rid: 5851814696149843972
   - rid: 5851814698151837696
   treeState: 0
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
-  viewPosition: {x: 386, y: 142, z: 0}
-  viewScale: {x: 0.65751624, y: 0.65751624, z: 1}
+  viewPosition: {x: 655, y: -31, z: 0}
+  viewScale: {x: 1, y: 1, z: 1}
   references:
     version: 2
     RefIds:
@@ -48,56 +45,12 @@ MonoBehaviour:
         state: 0
         started: 0
         guid: 5afd00e8d5d203a4098065890bb15b13
-        position: {x: -258.80008, y: 143.05}
+        position: {x: -259, y: 144}
         blackboard:
           moveToPosition: {x: 0, y: 0, z: 0}
         description: 
         drawGizmos: 0
-        children:
-        - rid: 5851814696149843970
-        - rid: 5851814696149843971
-        - rid: 5851814696149843972
-    - rid: 5851814696149843970
-      type: {class: RandomPosition, ns: , asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: c0b69b766641681418800dc574940aff
-        position: {x: -508.00003, y: 341.00006}
-        blackboard:
-          moveToPosition: {x: 0, y: 0, z: 0}
-        description: 
-        drawGizmos: 0
-        min: {x: -10, y: -10}
-        max: {x: 10, y: 10}
-    - rid: 5851814696149843971
-      type: {class: MoveToPosition, ns: , asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: 4dc4abf2da3e4e74b950f5a071fa924f
-        position: {x: -357.99994, y: 341.00006}
-        blackboard:
-          moveToPosition: {x: 0, y: 0, z: 0}
-        description: 
-        drawGizmos: 0
-        speed: 5
-        stoppingDistance: 0.1
-        updateRotation: 1
-        acceleration: 40
-        tolerance: 1
-    - rid: 5851814696149843972
-      type: {class: Wait, ns: TheKiwiCoder, asm: Assembly-CSharp}
-      data:
-        state: 0
-        started: 0
-        guid: 30c8c63ae15b84346a8465b38779f058
-        position: {x: -207.94995, y: 340.99997}
-        blackboard:
-          moveToPosition: {x: 0, y: 0, z: 0}
-        description: 
-        drawGizmos: 0
-        duration: 1
+        children: []
     - rid: 5851814698151837696
       type: {class: Repeat, ns: TheKiwiCoder, asm: Assembly-CSharp}
       data:

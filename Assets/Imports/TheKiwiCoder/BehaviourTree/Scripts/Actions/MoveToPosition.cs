@@ -5,11 +5,13 @@ using TheKiwiCoder;
 
 [System.Serializable]
 public class MoveToPosition : ActionNode {
-    public float speed = 5;
+    public float speed = 2;
     public float stoppingDistance = 0.1f;
     public bool updateRotation = true;
     public float acceleration = 40.0f;
-    public float tolerance = 1.0f;
+    public float tolerance = 15f;
+
+    public Animator animator;
 
     protected override void OnStart() {
         context.agent.stoppingDistance = stoppingDistance;
