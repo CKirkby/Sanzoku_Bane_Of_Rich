@@ -12,6 +12,7 @@ namespace StarterAssets
 		public Vector2 look;
 		public bool jump;
 		public bool sprint;
+		public bool grab;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -24,6 +25,11 @@ namespace StarterAssets
 		public void OnMove(InputValue value)
 		{
 			MoveInput(value.Get<Vector2>());
+		}
+
+		public void OnGrab(InputValue value)
+		{
+			GrabInput(value.isPressed);
 		}
 
 		public void OnLook(InputValue value)
@@ -54,6 +60,11 @@ namespace StarterAssets
 		public void LookInput(Vector2 newLookDirection)
 		{
 			look = newLookDirection;
+		}
+
+		public void GrabInput(bool newGrabState)
+		{
+			grab = newGrabState;
 		}
 
 		public void JumpInput(bool newJumpState)
