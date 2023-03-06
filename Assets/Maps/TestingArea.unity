@@ -217,6 +217,76 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!114 &525798861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525798857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f86ca4338d8dde4784fecb12f8bb070, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pManager: {fileID: 525798865}
+--- !u!114 &525798862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525798857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f11371fa7cb9b4943b455b5d658999e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pManager: {fileID: 525798865}
+--- !u!114 &525798863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525798857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cbc28c3e5d62814ba04c8a9614f2c01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pManager: {fileID: 525798865}
+--- !u!114 &525798864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525798857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29ef7ede1658ef946b04a0bdf4221e9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pManager: {fileID: 525798865}
+--- !u!114 &525798865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525798857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d38df82c6fef7174bbefa309582f645c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  damage: 50
+  pStateMachine: {fileID: 525798861}
+  pSearch: {fileID: 525798862}
+  pRandomLocation: {fileID: 525798863}
+  pPatrol: {fileID: 525798864}
 --- !u!1 &594715791
 GameObject:
   m_ObjectHideFlags: 0
@@ -649,7 +719,7 @@ PrefabInstance:
     - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.3749999
+      value: 1.3749998
       objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74,
         type: 3}
