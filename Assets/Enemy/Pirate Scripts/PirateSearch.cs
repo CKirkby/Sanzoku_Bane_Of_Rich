@@ -7,6 +7,8 @@ public class PirateSearch : MonoBehaviour
     [SerializeField]
     PirateManager pManager;
 
+    internal bool playerSeen;
+
     // Start is called before the first frame update
     void Start()
     {
