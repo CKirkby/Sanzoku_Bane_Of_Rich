@@ -11,11 +11,12 @@ public class PirateChase : MonoBehaviour
     [Header("Player refrences")]
     internal float distPlayer;
     internal bool playerSeen;
+    internal float tooCloseDistance = 3;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -31,12 +32,22 @@ public class PirateChase : MonoBehaviour
 
     internal void TooClose()
     {
-        if(distPlayer < 10f)
+        if (distPlayer < tooCloseDistance)
         {
-            pManager.pStateMachine.pCurrentState = PirateStateMachine.PStateMachine.Chasing\;
+            pManager.pStateMachine.pCurrentState = PirateStateMachine.PStateMachine.Chasing;
+        }
+    }
+
+    internal void TooFar()
+    {
+        if (distPlayer > tooCloseDistance)
+        {
+            pManager.pStateMachine.pCurrentState = PirateStateMachine.PStateMachine.Alert;
         }
     }
 }
+
+
 
 
 

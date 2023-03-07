@@ -19,7 +19,7 @@ public class PiratePatrol : MonoBehaviour
 
     internal void Patrol()
     {
-        if (pManager.pSearch.playerSeen == false)
+        if (pManager.pChase.playerSeen == false)
         {
             //Adds the float for current waypoint into the array and begins to move towards them in order
             Transform wp = waypoints[currentWaypoint];

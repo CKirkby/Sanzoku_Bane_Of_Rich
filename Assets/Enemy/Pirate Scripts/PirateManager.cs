@@ -7,7 +7,7 @@ public class PirateManager : MonoBehaviour
 {
     [Header("Pirate Attributes")]
     [SerializeField] 
-    internal float speed = 2f;
+    internal float speed = 1f;
     [SerializeField]
     internal float damage = 50f;
 

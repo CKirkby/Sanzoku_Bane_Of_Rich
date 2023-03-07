@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class PirateStateMachine : MonoBehaviour
@@ -7,7 +8,8 @@ public class PirateStateMachine : MonoBehaviour
     [SerializeField]
     PirateManager pManager;
 
-    internal enum PStateMachine {Idle, Patrolling, Chasing, Attacking}
+    internal enum PStateMachine {Idle, Patrolling, Chasing, Alert, Attacking}
+    [SerializeField]
     internal PStateMachine pCurrentState;
 
 
@@ -38,7 +40,20 @@ public class PirateStateMachine : MonoBehaviour
                 break;
 
             case PStateMachine.Chasing:
+                pManager.pChase.playerSeen = true;
                 pManager.pAnimator.SetBool("isRunning", true);
+                //Move towards the player
+                transform.LookAt(pManager.player.position);
+                transform.Translate(Vector3.forward * pManager.speed * Time.deltaTime);
+                pManager.pChase.TooFar();
+                break;
+
+            case PStateMachine.Alert:
+                pManager.pPatrol.Patrol();
+                pManager.pAnimator.SetBool("isAlert", true);
+                pManager.pChase.playerSeen = false;
+                pManager.speed = 2f;
+                pManager.pChase.TooClose();
                 break;
         }
 

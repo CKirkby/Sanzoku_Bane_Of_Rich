@@ -32,7 +32,7 @@ public class Arms : MonoBehaviour
         Debug.Log("PICKING UP");
         
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSecondsRealtime(2);
 
         animator.SetBool("isGrabbing" ,false);
         Debug.Log("Resetting arm");
