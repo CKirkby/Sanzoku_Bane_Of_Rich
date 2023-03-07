@@ -7,8 +7,8 @@ public class PirateStateMachine : MonoBehaviour
     [SerializeField]
     PirateManager pManager;
 
-    public enum PStateMachine {Idle, Patrolling, Chasing, Attacking}
-    public PStateMachine pCurrentState = PStateMachine.Idle;
+    internal enum PStateMachine {Idle, Patrolling, Chasing, Attacking}
+    internal PStateMachine pCurrentState;
 
 
     // Start is called before the first frame update
@@ -28,8 +28,17 @@ public class PirateStateMachine : MonoBehaviour
                 break;
 
             case PStateMachine.Patrolling:
+                //Sets the Pirate on a patrol path
                 pManager.pPatrol.Patrol();
+                pManager.pChase.playerSeen = false;
                 pManager.pAnimator.SetBool("isWalking", true);
+
+                //Changes State to chasing if too close.
+                pManager.pChase.TooClose();
+                break;
+
+            case PStateMachine.Chasing:
+                pManager.pAnimator.SetBool("isRunning", true);
                 break;
         }
 

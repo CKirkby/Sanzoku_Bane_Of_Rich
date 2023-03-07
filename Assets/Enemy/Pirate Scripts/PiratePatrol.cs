@@ -34,7 +34,7 @@ public class PiratePatrol : MonoBehaviour
             }
         }
 
-
+        pManager.pAnimator.SetBool("isRunning", false);
 
     }
 

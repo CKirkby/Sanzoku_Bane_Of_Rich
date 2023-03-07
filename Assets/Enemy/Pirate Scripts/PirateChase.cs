@@ -21,6 +21,22 @@ public class PirateChase : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        GetDistance();
+    }
+
+    internal void GetDistance()
+    {
         distPlayer = Vector3.Distance(pManager.enemy.transform.position, pManager.player.transform.position);
     }
+
+    internal void TooClose()
+    {
+        if(distPlayer < 10f)
+        {
+            pManager.pStateMachine.pCurrentState = PirateStateMachine.PStateMachine.Chasing\;
+        }
+    }
 }
+
+
+
