@@ -17,7 +17,7 @@ public class Arms : MonoBehaviour
         playerInput = GetComponentInParent<PlayerInput>();
         _input = GetComponentInParent<StarterAssetsInputs>();
     }
-
+/*
     private void Update()
     {
       if(_input.grab)
@@ -37,5 +37,5 @@ public class Arms : MonoBehaviour
         animator.SetBool("isGrabbing" ,false);
         Debug.Log("Resetting arm");
     }
-    
+    */
 }

@@ -7,7 +7,7 @@ public class PirateManager : MonoBehaviour
 {
     [Header("Pirate Attributes")]
     [SerializeField] 
-    internal float speed = 1f;
+    internal float speed = 0.5f;
     [SerializeField]
     internal float damage = 50f;
 
@@ -30,7 +30,7 @@ public class PirateManager : MonoBehaviour
     [SerializeField]
     internal Transform enemy;
 
-    private void Awake()
+    internal void Awake()
     {
         pAnimator = GetComponent<Animator>();
     }

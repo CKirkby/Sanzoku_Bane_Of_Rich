@@ -10,8 +10,9 @@ public class PirateChase : MonoBehaviour
 
     [Header("Player refrences")]
     internal float distPlayer;
-    internal bool playerSeen;
-    internal float tooCloseDistance = 3;
+    internal bool playerSeen = false;
+    internal float tooCloseDistance = 5f;
+    internal bool tooClose = false;
 
     // Start is called before the first frame update
     void Start()
@@ -27,22 +28,32 @@ public class PirateChase : MonoBehaviour
 
     internal void GetDistance()
     {
+       // Debug.Log(distPlayer);
         distPlayer = Vector3.Distance(pManager.enemy.transform.position, pManager.player.transform.position);
     }
 
     internal void TooClose()
     {
-        if (distPlayer < tooCloseDistance)
+        if (distPlayer <= 5)
         {
+            tooClose= true;
+            Debug.Log("TOO CLOSE IS" + tooClose);
+            if(tooClose == true)
+            {
+            Debug.Log("TOO CLOSE");
             pManager.pStateMachine.pCurrentState = PirateStateMachine.PStateMachine.Chasing;
+            playerSeen = true;
+            }
         }
     }
 
     internal void TooFar()
     {
-        if (distPlayer > tooCloseDistance)
+        if (distPlayer >= 5)
         {
+            Debug.Log("TOO FAR");
             pManager.pStateMachine.pCurrentState = PirateStateMachine.PStateMachine.Alert;
+            playerSeen = false;
         }
     }
 }
