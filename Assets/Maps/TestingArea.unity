@@ -219,7 +219,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 221010443}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -24.67, y: 6.71, z: -4.8059354}
+  m_LocalPosition: {x: -20.67, y: 6.71, z: -4.8059354}
   m_LocalScale: {x: 3.9306, y: 4.444578, z: 0.030822}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -317,6 +317,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerBody
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 23e0fa655bc1c1647a882309f99e119b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7078722787440015773, guid: 23e0fa655bc1c1647a882309f99e119b,
         type: 3}
@@ -777,7 +782,7 @@ MonoBehaviour:
   radius: 7
   angle: 100
   canSeePlayer: 0
-  playerRef: {fileID: 277874309}
+  playerRef: {fileID: 804148660}
   castPoint: {fileID: 1950897777}
 --- !u!1 &594715791
 GameObject:
@@ -882,6 +887,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: e40fa0edf8a05e246b4f2025b5acdf75,
     type: 3}
   m_PrefabInstance: {fileID: 1274661173}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &804148660 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5393215578589016642, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+    type: 3}
+  m_PrefabInstance: {fileID: 899751206}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &880280553
 PrefabInstance:
@@ -993,6 +1004,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerCapsule
+      objectReference: {fileID: 0}
+    - target: {fileID: 8616685848737228372, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8616685848737228376, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
         type: 3}

@@ -25,7 +25,7 @@ public class PirateFOV : MonoBehaviour
     
     internal void Start()
     {
-        playerRef = GameObject.FindGameObjectWithTag("Player");
+        //playerRef = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(FOVRoutine());
     }
 
