@@ -26,7 +26,7 @@ public class PirateStateMachine : MonoBehaviour
     {
 
         Debug.Log(pCurrentState);
-
+/*
         switch (pCurrentState)
         {
             case PStateMachine.Idle:
@@ -63,6 +63,6 @@ public class PirateStateMachine : MonoBehaviour
                 default: 
                     break;
         }
-
+*/
     }
 }

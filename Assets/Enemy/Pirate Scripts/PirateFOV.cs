@@ -13,14 +13,15 @@ public class PirateFOV : MonoBehaviour
 
     [Header("FOV Options")]
     [SerializeField]
-    internal float radius;
+    public float radius;
     [Range(0,360)]
     [SerializeField]
-    internal float angle;
+    public float angle;
 
     [Header("Auxillary Elements")]
-    internal bool canSeePlayer;
-    internal GameObject playerRef;
+    public bool canSeePlayer;
+    public GameObject playerRef;
+    public GameObject castPoint;
     
     internal void Start()
     {
@@ -41,18 +42,18 @@ public class PirateFOV : MonoBehaviour
 
     internal void FieldOfViewCheck()
     {
-        Collider[] rangeChecks = Physics.OverlapSphere(transform.position, radius, targetMask);
+        Collider[] rangeChecks = Physics.OverlapSphere(castPoint.transform.position, radius, targetMask);
 
         if(rangeChecks.Length > 0 )
         {
             Transform target = rangeChecks[0].transform;
-            Vector3 directionToTarget = (target.position - transform.position).normalized;
+            Vector3 directionToTarget = (target.position - castPoint.transform.position).normalized;
 
-            if(Vector3.Angle(transform.forward, directionToTarget) < angle / 2)
+            if(Vector3.Angle(castPoint.transform.forward, directionToTarget) < angle / 2)
             {
-                float distanceToTarget = Vector3.Distance(transform.position, target.position);
+                float distanceToTarget = Vector3.Distance(castPoint.transform.position, target.position);
 
-                if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionMask))
+                if (!Physics.Raycast(castPoint.transform.position, directionToTarget, distanceToTarget, obstructionMask))
                 {
                     canSeePlayer = true;
                 }
