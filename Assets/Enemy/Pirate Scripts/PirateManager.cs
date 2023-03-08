@@ -22,6 +22,8 @@ public class PirateManager : MonoBehaviour
     internal PiratePatrol pPatrol;
     [SerializeField]
     internal PirateChase pChase;
+    [SerializeField]
+    internal PirateFOV pFOV;
 
     [Header("Element Refrences")]
     internal Animator pAnimator;

@@ -7,6 +7,8 @@ public class PirateChase : MonoBehaviour
 {
     [SerializeField]
     internal PirateManager pManager;
+    [SerializeField]
+    internal Transform castPosition;
 
     [Header("Player refrences")]
     internal float distPlayer;
@@ -24,41 +26,42 @@ public class PirateChase : MonoBehaviour
     void Update()
     {
         GetDistance();
+        TooClose();
+        TooFar();
     }
 
     internal void GetDistance()
     {
-       // Debug.Log(distPlayer);
-        distPlayer = Vector3.Distance(pManager.enemy.transform.position, pManager.player.transform.position);
+        // Debug.Log(distPlayer);
+        float distPlayer = Vector3.Distance(pManager.enemy.transform.position, pManager.player.transform.position);
     }
-
     internal void TooClose()
-    {
-        if (distPlayer <= 5)
-        {
-            tooClose= true;
-            Debug.Log("TOO CLOSE IS" + tooClose);
-            if(tooClose == true)
-            {
-            Debug.Log("TOO CLOSE");
-            pManager.pStateMachine.pCurrentState = PirateStateMachine.PStateMachine.Chasing;
-            playerSeen = true;
-            }
-        }
-    }
+      {
+          if (distPlayer <= 5f)
+          {
+              playerSeen = true;
+          }
+      }
 
     internal void TooFar()
     {
-        if (distPlayer >= 5)
+        if (distPlayer >= 5f)
         {
-            Debug.Log("TOO FAR");
-            pManager.pStateMachine.pCurrentState = PirateStateMachine.PStateMachine.Alert;
             playerSeen = false;
         }
+            
+        
+    }
+
+    internal void Chasingtime()
+    {
+        pManager.pStateMachine.pCurrentState = PirateStateMachine.PStateMachine.Chasing;
+    }
+
+    internal void Alerttime()
+    {
+        pManager.pStateMachine.pCurrentState = PirateStateMachine.PStateMachine.Alert;
     }
 }
-
-
-
 
 
