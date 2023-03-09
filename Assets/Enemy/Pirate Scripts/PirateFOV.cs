@@ -54,6 +54,7 @@ public class PirateFOV : MonoBehaviour
 
                 if (!Physics.Raycast(castPoint.transform.position, directionToTarget, distanceToTarget, obstructionMask))
                 {
+                    Debug.Log("I see you");
                     canSeePlayer = true;
                 }
                 else

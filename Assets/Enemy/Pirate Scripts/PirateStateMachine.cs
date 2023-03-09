@@ -27,7 +27,7 @@ public class PirateStateMachine : MonoBehaviour
     void Update()
     {
 
-        Debug.Log(pCurrentState);
+        //Debug.Log(pCurrentState);
 
         switch (pCurrentState)
         {
