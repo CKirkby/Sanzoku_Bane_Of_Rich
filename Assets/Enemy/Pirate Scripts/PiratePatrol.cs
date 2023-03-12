@@ -39,7 +39,7 @@ public class PiratePatrol : MonoBehaviour
         {
             //Adds the float for current waypoint into the array and begins to move towards them in order
             Transform wp = waypoints[currentWaypoint];
-            if (Vector3.Distance(transform.position, wp.position) < 0.01f)
+            if (Vector3.Distance(transform.position, wp.transform.position) < 0.01f)
             {
                 // currentWaypoint = (currentWaypoint + Random.Range(0, 7)) % waypoints.Length;
                 currentWaypoint = (currentWaypoint + 1) % waypoints.Length;
