@@ -27,14 +27,14 @@ public class PirateManager : MonoBehaviour
     [Header("Element Refrences")]
     internal Animator pAnimator;
     [SerializeField]
-    internal Transform player;
+    internal GameObject player;
     [SerializeField]
     internal Transform enemy;
-
+    [SerializeField]
     internal void Awake()
     {
         pAnimator = GetComponent<Animator>();
         navMeshAgent = gameObject.GetComponent<NavMeshAgent>();
-    }
 
+    }
 }

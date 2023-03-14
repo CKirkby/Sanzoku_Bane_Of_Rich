@@ -38,8 +38,8 @@ public class PiratePatrol : MonoBehaviour
             Transform wp = waypoints[currentWaypoint];
             if (Vector3.Distance(transform.position, wp.transform.position) < 0.25f)
             {
-                currentWaypoint = (currentWaypoint + Random.Range(0, 7)) % waypoints.Length;
-                //currentWaypoint = (currentWaypoint + 1) % waypoints.Length;
+                // currentWaypoint = (currentWaypoint + Random.Range(0, 7)) % waypoints.Length;
+                currentWaypoint = (currentWaypoint + 1) % waypoints.Length;
             }
             else
             {
