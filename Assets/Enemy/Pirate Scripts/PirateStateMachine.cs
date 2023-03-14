@@ -37,7 +37,7 @@ public class PirateStateMachine : MonoBehaviour
  
              case PStateMachine.Patrolling:
                 //Sets the Pirate on a patrol pat
-                pManager.speed = 20f;
+                pManager.navMeshAgent.speed = 0.8f;
                      pManager.pPatrol.Patrol();
                      pManager.pAnimator.SetBool("isWalking", true);
                      StartChasing();
@@ -46,16 +46,16 @@ public class PirateStateMachine : MonoBehaviour
             case PStateMachine.Chasing:
                     pManager.pAnimator.SetBool("isRunning", true);
                 //Move towards the player
-                    pManager.speed = 4f;
+                    pManager.navMeshAgent.speed = 4f;
                     transform.LookAt(pManager.player.position);
-                    transform.Translate(Vector3.forward * pManager.speed * Time.deltaTime);
+                    pManager.navMeshAgent.SetDestination(pManager.player.position);
                     EndChasing();
                 break;
 
             case PStateMachine.Alert:
                     pManager.pPatrol.Patrol();
                     pManager.pAnimator.SetBool("isAlert", true);
-                    pManager.speed = 2f;
+                    pManager.navMeshAgent.speed = 1.7f;
                     StartChasing();
                 break;
 

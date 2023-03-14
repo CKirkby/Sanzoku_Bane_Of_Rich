@@ -9,8 +9,6 @@ public class PiratePatrol : MonoBehaviour
     PirateManager pManager;
 
     [Header("Patrol Elements")]
-    [SerializeField]
-    public NavMeshAgent navMeshAgent;
     internal float startWaitTime = 4;
     internal float timeToRotate = 2;
     internal float _WaitTime;
@@ -23,7 +21,6 @@ public class PiratePatrol : MonoBehaviour
 
     internal void Start()
     {
-
 
     }
 
@@ -39,15 +36,15 @@ public class PiratePatrol : MonoBehaviour
         {
             //Adds the float for current waypoint into the array and begins to move towards them in order
             Transform wp = waypoints[currentWaypoint];
-            if (Vector3.Distance(transform.position, wp.transform.position) < 0.01f)
+            if (Vector3.Distance(transform.position, wp.transform.position) < 0.25f)
             {
-                // currentWaypoint = (currentWaypoint + Random.Range(0, 7)) % waypoints.Length;
-                currentWaypoint = (currentWaypoint + 1) % waypoints.Length;
+                currentWaypoint = (currentWaypoint + Random.Range(0, 7)) % waypoints.Length;
+                //currentWaypoint = (currentWaypoint + 1) % waypoints.Length;
             }
             else
             {
-                transform.position = Vector3.MoveTowards(transform.position, wp.position, pManager.speed * Time.deltaTime);
-                transform.LookAt(wp.position);
+                pManager.navMeshAgent.SetDestination(wp.position);
+                //transform.LookAt(wp.position);
             }
         }
 
