@@ -129,12 +129,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1540590844}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &277874309 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8755037866791020483, guid: 541fa66cfed631744ba6bee4ae726847,
-    type: 3}
-  m_PrefabInstance: {fileID: 8755037866532020550}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &282465715
 GameObject:
   m_ObjectHideFlags: 0
@@ -488,7 +482,7 @@ MonoBehaviour:
   pPatrol: {fileID: 525798864}
   pFOV: {fileID: 525798873}
   navMeshAgent: {fileID: 525798872}
-  player: {fileID: 277874309}
+  player: {fileID: 804148660}
   enemy: {fileID: 525798867}
 --- !u!195 &525798872
 NavMeshAgent:
@@ -1771,6 +1765,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 394307923005491703, guid: 541fa66cfed631744ba6bee4ae726847,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.3750002
+      objectReference: {fileID: 0}
     - target: {fileID: 8755037866791020480, guid: 541fa66cfed631744ba6bee4ae726847,
         type: 3}
       propertyPath: m_RootOrder
