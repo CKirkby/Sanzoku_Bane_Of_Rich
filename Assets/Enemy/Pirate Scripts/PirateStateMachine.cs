@@ -47,7 +47,7 @@ public class PirateStateMachine : MonoBehaviour
                     pManager.pAnimator.SetBool("isRunning", true);
                 //Sets the Pirate to chase the player.
                     pManager.navMeshAgent.speed = 4f;
-                //transform.LookAt(pManager.player.transform.position);
+                    transform.LookAt(pManager.player.transform.position);
                     pManager.navMeshAgent.SetDestination(pManager.player.transform.position);
                     EndChasing();
                 break;
