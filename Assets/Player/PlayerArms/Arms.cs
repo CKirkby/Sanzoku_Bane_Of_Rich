@@ -1,4 +1,4 @@
-using StarterAssets;
+/*
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -37,5 +37,6 @@ public class Arms : MonoBehaviour
         animator.SetBool("isGrabbing" ,false);
         Debug.Log("Resetting arm");
     }
-    */
+    
 }
+*/

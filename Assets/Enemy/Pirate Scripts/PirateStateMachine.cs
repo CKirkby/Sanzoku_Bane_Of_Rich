@@ -49,6 +49,10 @@ public class PirateStateMachine : MonoBehaviour
                     pManager.navMeshAgent.speed = 4f;
                     transform.LookAt(pManager.player.transform.position);
                     pManager.navMeshAgent.SetDestination(pManager.player.transform.position);
+                    if (Vector3.Distance(transform.position, pManager.player.transform.position) < 1f)
+                    {
+                        pCurrentState = PStateMachine.Attacking;
+                    }
                     EndChasing();
                 break;
 
@@ -59,6 +63,13 @@ public class PirateStateMachine : MonoBehaviour
                     pManager.navMeshAgent.speed = 1.7f;
                     StartChasing();
                 break;
+            case PStateMachine.Attacking:
+                pManager.pAnimator.SetBool("isAttacking", true);
+                if (Vector3.Distance(transform.position, pManager.player.transform.position) > 1f)
+                {
+                    pCurrentState = PStateMachine.Chasing;
+                }
+                    break;
 
                 default: 
                     break;
