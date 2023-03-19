@@ -17,12 +17,14 @@ public class FirstPersonController : MonoBehaviour
     [SerializeField] private bool canUseHeadbob = true;
     [SerializeField] private bool willSlideOnSlopes = true;
     [SerializeField] private bool canZoom = true;
+    [SerializeField] private bool canInteract = true;
 
     [Header("Controls")]
     [SerializeField] private KeyCode sprintKey = KeyCode.LeftShift;
     [SerializeField] private KeyCode jumpKey = KeyCode.Space;
     [SerializeField] private KeyCode crouchKey = KeyCode.LeftControl;
     [SerializeField] private KeyCode zoomKey = KeyCode.Mouse1;
+    [SerializeField] private KeyCode interactKey = KeyCode.Mouse0;
 
 
     [Header("Movement Parameters")]
@@ -66,9 +68,9 @@ public class FirstPersonController : MonoBehaviour
     private float defaultFov;
     private Coroutine zoomRoutine;
 
-    //SLIDING PARAMETERS
+    [Header("Sliding Parameters")]
     private Vector3 hitPointNormal;
-    private bool isSliding
+    private bool IsSliding
     {
         get
         {
@@ -83,6 +85,12 @@ public class FirstPersonController : MonoBehaviour
             }
         }
     }
+
+    [Header("Interaction")]
+    [SerializeField] private Vector3 interactionRayPoint = default;
+    [SerializeField] private float interactionDistance = default;
+    [SerializeField] private LayerMask interactionLayer = default;
+    private Interactable currentInteractable;
 
     private Camera playerCamera;
     private CharacterController characterController;
@@ -110,14 +118,24 @@ public class FirstPersonController : MonoBehaviour
         {
             MovementInput();
             MouseLook();
+
             if (canJump)
                 Jump();
+
             if (canCrouch)
                 Crouching();
+
             if (canUseHeadbob)
                 Headbob();
+
             if (canZoom)
                 Zoom();
+
+            if (canInteract)
+            {
+                InteractionCheck();
+                InteractionInput();
+            }
 
             ApplyFinalMovements();
         }
@@ -198,6 +216,35 @@ public class FirstPersonController : MonoBehaviour
         }
     }
 
+    private void InteractionCheck()
+    {
+           if(Physics.Raycast(playerCamera.ViewportPointToRay(interactionRayPoint), out RaycastHit hit, interactionDistance, LayerMask.GetMask("Interactable")))
+        {
+            if(hit.collider.gameObject.layer == 9 && (currentInteractable == null || hit.collider.gameObject.GetInstanceID() != currentInteractable.GetInstanceID()))
+            {
+                hit.collider.TryGetComponent(out currentInteractable);
+
+                if(currentInteractable)
+                {
+                    currentInteractable.OnFocus();
+                } 
+            }
+        }
+        else if(currentInteractable)
+        {
+            currentInteractable.OnLoseFocus();
+            currentInteractable = null;
+        }
+    }
+
+    private void InteractionInput()
+    {
+        if(Input.GetKeyDown(interactKey) && currentInteractable != null && Physics.Raycast(playerCamera.ViewportPointToRay(interactionRayPoint), out RaycastHit _hit, interactionDistance, interactionLayer))
+        {
+            currentInteractable.OnInteract();
+        }
+    }
+
     private IEnumerator ToggleZoom(bool isEnter)
     {
         float targetFOV = isEnter ? zoomFov : defaultFov;
@@ -220,7 +267,7 @@ public class FirstPersonController : MonoBehaviour
         if(!characterController.isGrounded)
             moveDirection.y -= gravity * Time.deltaTime;
 
-        if(willSlideOnSlopes && isSliding)
+        if(willSlideOnSlopes && IsSliding)
             moveDirection += new Vector3(hitPointNormal.x, -hitPointNormal.y, hitPointNormal.z) * slopeSpeed;
 
         characterController.Move(moveDirection * Time.deltaTime);
