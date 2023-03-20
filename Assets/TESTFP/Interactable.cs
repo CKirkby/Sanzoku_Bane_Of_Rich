@@ -4,9 +4,12 @@ using UnityEngine;
 
 public abstract class Interactable : MonoBehaviour
 {
+    public MeshRenderer Renderer;
+
     public virtual void Awake()
     {
         gameObject.layer = 11;
+        Renderer meshRenderer = gameObject.GetComponent<MeshRenderer>();
     }
 
     public abstract void OnInteract();

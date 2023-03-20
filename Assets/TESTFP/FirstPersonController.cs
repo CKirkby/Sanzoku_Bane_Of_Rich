@@ -104,12 +104,13 @@ public class FirstPersonController : MonoBehaviour
     private float footstepTimer = 0;
     private float GetCurrentOffset => isCrouching ? baseStepSpeed * crouchStepMultiplier : IsSprinting ? baseStepSpeed * sprintStepMultiplier : baseStepSpeed;
 
+    //Refrences
     private Camera playerCamera;
     private CharacterController characterController;
 
+    //PLayerMovement
     private Vector3 moveDirection;
     private Vector2 currentInput;
-
     private float rotationX = 0;
 
     void Awake()
@@ -235,7 +236,7 @@ public class FirstPersonController : MonoBehaviour
     {
            if(Physics.Raycast(playerCamera.ViewportPointToRay(interactionRayPoint), out RaycastHit hit, interactionDistance, LayerMask.GetMask("Interactable")))
         {
-            if(hit.collider.gameObject.layer == 9 && (currentInteractable == null || hit.collider.gameObject.GetInstanceID() != currentInteractable.GetInstanceID()))
+            if(hit.collider.gameObject.layer == 11 && (currentInteractable == null || hit.collider.gameObject.GetInstanceID() != currentInteractable.GetInstanceID()))
             {
                 hit.collider.TryGetComponent(out currentInteractable);
 

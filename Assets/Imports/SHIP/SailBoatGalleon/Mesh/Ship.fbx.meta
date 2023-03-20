@@ -1,86 +1,242 @@
 fileFormatVersion: 2
 guid: 40ef81b6c93bd524496b60656bbeb343
 ModelImporter:
-  serializedVersion: 22
-  fileIDToRecycleName:
-    100000: Barrel
-    100002: Berth_v1
-    100004: Berth_v2
-    100006: Berth_v3
-    100008: Cannon
-    100010: CannonBall
-    100012: Dinghy
-    100014: Dinghy_Ropes
-    100016: Paddle
-    100018: Props
-    100020: Sailboat
-    100022: //RootNode
-    100024: Wheel
-    100026: Sailboat_2
-    400000: Barrel
-    400002: Berth_v1
-    400004: Berth_v2
-    400006: Berth_v3
-    400008: Cannon
-    400010: CannonBall
-    400012: Dinghy
-    400014: Dinghy_Ropes
-    400016: Paddle
-    400018: Props
-    400020: Sailboat
-    400022: //RootNode
-    400024: Wheel
-    400026: Sailboat_2
-    2100000: Barrel
-    2100002: Berth
-    2100004: Wheel
-    2100006: cannon
-    2100008: boat
-    2100010: No Name
-    2100012: Rope
-    2100014: Ship1
-    2100016: Ship2
-    2100018: Cage
-    2100020: Lamp
-    2100022: Sail
-    2100024: Anchor
-    2300000: Barrel
-    2300002: Berth_v1
-    2300004: Berth_v2
-    2300006: Berth_v3
-    2300008: Cannon
-    2300010: CannonBall
-    2300012: Dinghy
-    2300014: Dinghy_Ropes
-    2300016: Paddle
-    2300018: Sailboat
-    2300020: Wheel
-    2300022: Sailboat_2
-    3300000: Barrel
-    3300002: Berth_v1
-    3300004: Berth_v2
-    3300006: Berth_v3
-    3300008: Cannon
-    3300010: CannonBall
-    3300012: Dinghy
-    3300014: Dinghy_Ropes
-    3300016: Paddle
-    3300018: Sailboat
-    3300020: Wheel
-    3300022: Sailboat_2
-    4300000: CannonBall
-    4300002: Berth_v1
-    4300004: Berth_v2
-    4300006: Berth_v3
-    4300008: Wheel
-    4300010: Barrel
-    4300012: Cannon
-    4300014: Paddle
-    4300016: Dinghy_Ropes
-    4300018: Dinghy
-    4300020: Sailboat
-    4300022: Sailboat_2
-    9500000: //RootNode
+  serializedVersion: 21300
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: Barrel
+  - first:
+      1: 100002
+    second: Berth_v1
+  - first:
+      1: 100004
+    second: Berth_v2
+  - first:
+      1: 100006
+    second: Berth_v3
+  - first:
+      1: 100008
+    second: Cannon
+  - first:
+      1: 100010
+    second: CannonBall
+  - first:
+      1: 100012
+    second: Dinghy
+  - first:
+      1: 100014
+    second: Dinghy_Ropes
+  - first:
+      1: 100016
+    second: Paddle
+  - first:
+      1: 100018
+    second: Props
+  - first:
+      1: 100020
+    second: Sailboat
+  - first:
+      1: 100022
+    second: //RootNode
+  - first:
+      1: 100024
+    second: Wheel
+  - first:
+      1: 100026
+    second: Sailboat_2
+  - first:
+      4: 400000
+    second: Barrel
+  - first:
+      4: 400002
+    second: Berth_v1
+  - first:
+      4: 400004
+    second: Berth_v2
+  - first:
+      4: 400006
+    second: Berth_v3
+  - first:
+      4: 400008
+    second: Cannon
+  - first:
+      4: 400010
+    second: CannonBall
+  - first:
+      4: 400012
+    second: Dinghy
+  - first:
+      4: 400014
+    second: Dinghy_Ropes
+  - first:
+      4: 400016
+    second: Paddle
+  - first:
+      4: 400018
+    second: Props
+  - first:
+      4: 400020
+    second: Sailboat
+  - first:
+      4: 400022
+    second: //RootNode
+  - first:
+      4: 400024
+    second: Wheel
+  - first:
+      4: 400026
+    second: Sailboat_2
+  - first:
+      21: 2100000
+    second: Barrel
+  - first:
+      21: 2100002
+    second: Berth
+  - first:
+      21: 2100004
+    second: Wheel
+  - first:
+      21: 2100006
+    second: cannon
+  - first:
+      21: 2100008
+    second: boat
+  - first:
+      21: 2100010
+    second: No Name
+  - first:
+      21: 2100012
+    second: Rope
+  - first:
+      21: 2100014
+    second: Ship1
+  - first:
+      21: 2100016
+    second: Ship2
+  - first:
+      21: 2100018
+    second: Cage
+  - first:
+      21: 2100020
+    second: Lamp
+  - first:
+      21: 2100022
+    second: Sail
+  - first:
+      21: 2100024
+    second: Anchor
+  - first:
+      23: 2300000
+    second: Barrel
+  - first:
+      23: 2300002
+    second: Berth_v1
+  - first:
+      23: 2300004
+    second: Berth_v2
+  - first:
+      23: 2300006
+    second: Berth_v3
+  - first:
+      23: 2300008
+    second: Cannon
+  - first:
+      23: 2300010
+    second: CannonBall
+  - first:
+      23: 2300012
+    second: Dinghy
+  - first:
+      23: 2300014
+    second: Dinghy_Ropes
+  - first:
+      23: 2300016
+    second: Paddle
+  - first:
+      23: 2300018
+    second: Sailboat
+  - first:
+      23: 2300020
+    second: Wheel
+  - first:
+      23: 2300022
+    second: Sailboat_2
+  - first:
+      33: 3300000
+    second: Barrel
+  - first:
+      33: 3300002
+    second: Berth_v1
+  - first:
+      33: 3300004
+    second: Berth_v2
+  - first:
+      33: 3300006
+    second: Berth_v3
+  - first:
+      33: 3300008
+    second: Cannon
+  - first:
+      33: 3300010
+    second: CannonBall
+  - first:
+      33: 3300012
+    second: Dinghy
+  - first:
+      33: 3300014
+    second: Dinghy_Ropes
+  - first:
+      33: 3300016
+    second: Paddle
+  - first:
+      33: 3300018
+    second: Sailboat
+  - first:
+      33: 3300020
+    second: Wheel
+  - first:
+      33: 3300022
+    second: Sailboat_2
+  - first:
+      43: 4300000
+    second: CannonBall
+  - first:
+      43: 4300002
+    second: Berth_v1
+  - first:
+      43: 4300004
+    second: Berth_v2
+  - first:
+      43: 4300006
+    second: Berth_v3
+  - first:
+      43: 4300008
+    second: Wheel
+  - first:
+      43: 4300010
+    second: Barrel
+  - first:
+      43: 4300012
+    second: Cannon
+  - first:
+      43: 4300014
+    second: Paddle
+  - first:
+      43: 4300016
+    second: Dinghy_Ropes
+  - first:
+      43: 4300018
+    second: Dinghy
+  - first:
+      43: 4300020
+    second: Sailboat
+  - first:
+      43: 4300022
+    second: Sailboat_2
+  - first:
+      95: 9500000
+    second: //RootNode
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -143,7 +299,7 @@ ModelImporter:
       name: cannon
     second: {fileID: 2100000, guid: 1ce1cd21034ddb94c920ff47945c3233, type: 2}
   materials:
-    importMaterials: 1
+    materialImportMode: 2
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -152,6 +308,7 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
@@ -160,6 +317,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -174,21 +332,33 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 0
+    sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
     preserveHierarchy: 1
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
@@ -196,10 +366,13 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 0
-  copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -209,14 +382,18 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 0
   humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 
