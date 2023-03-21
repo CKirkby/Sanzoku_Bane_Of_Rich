@@ -15,13 +15,6 @@ public class PirateStateMachine : MonoBehaviour
     [SerializeField]
     internal PStateMachine pCurrentState = PStateMachine.Patrolling ;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
 
     void Update()
@@ -49,7 +42,7 @@ public class PirateStateMachine : MonoBehaviour
                     pManager.navMeshAgent.speed = 4f;
                     transform.LookAt(pManager.player.transform.position);
                     pManager.navMeshAgent.SetDestination(pManager.player.transform.position);
-                    if (Vector3.Distance(transform.position, pManager.player.transform.position) < 1f)
+                    if (Vector3.Distance(transform.position, pManager.player.transform.position) < 3.5f)
                     {
                         pCurrentState = PStateMachine.Attacking;
                     }
@@ -63,12 +56,10 @@ public class PirateStateMachine : MonoBehaviour
                     pManager.navMeshAgent.speed = 1.7f;
                     StartChasing();
                 break;
+            
             case PStateMachine.Attacking:
-                pManager.pAnimator.SetBool("isAttacking", true);
-                if (Vector3.Distance(transform.position, pManager.player.transform.position) > 1f)
-                {
-                    pCurrentState = PStateMachine.Chasing;
-                }
+                pManager.navMeshAgent.speed = 0f;
+                StartCoroutine(AttackingAnim());
                     break;
 
                 default: 
@@ -80,7 +71,9 @@ public class PirateStateMachine : MonoBehaviour
     {
         if(pManager.pFOV.canSeePlayer == true)
         {
-           pCurrentState = PStateMachine.Chasing;
+            pManager.navMeshAgent.speed = 0;
+            pManager.pAnimator.SetBool("hasSeenPlayer", true);
+            StartCoroutine(WaitForAnim());
         }
     }
 
@@ -89,6 +82,28 @@ public class PirateStateMachine : MonoBehaviour
         if (pManager.pFOV.canSeePlayer == false)
         {
             pCurrentState = PStateMachine.Alert;
+        }
+    }
+
+    private IEnumerator WaitForAnim()
+    {
+        yield return new WaitForSeconds(2.3f);
+        pCurrentState = PStateMachine.Chasing;
+    }
+
+    internal IEnumerator AttackingAnim()
+    {
+        pManager.pAnimator.SetBool("isAttacking", true);
+        yield return new WaitForSeconds(3.5f);
+      
+        if (Vector3.Distance(transform.position, pManager.player.transform.position) > 3.5f)
+        {
+            pManager.pAnimator.SetBool("isAttacking", false);
+            pCurrentState = PStateMachine.Chasing;
+        }
+        else
+        {
+            pCurrentState = PStateMachine.Attacking;
         }
     }
 }

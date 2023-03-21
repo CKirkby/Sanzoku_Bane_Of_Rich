@@ -10,6 +10,10 @@ public class PirateManager : MonoBehaviour
     [SerializeField]
     internal float damage = 50f;
 
+    [Header("Audio Properties")]
+    [SerializeField] internal AudioSource pAudioSource;
+    [SerializeField] internal AudioClip[] pWarCry;
+
     [Header("Script Refrences")]
     [SerializeField]
     internal PirateStateMachine pStateMachine;
@@ -30,11 +34,11 @@ public class PirateManager : MonoBehaviour
     internal GameObject player;
     [SerializeField]
     internal Transform enemy;
-    [SerializeField]
+
     internal void Awake()
     {
         pAnimator = GetComponent<Animator>();
         navMeshAgent = gameObject.GetComponent<NavMeshAgent>();
-
+        pAudioSource = GetComponent<AudioSource>();
     }
 }

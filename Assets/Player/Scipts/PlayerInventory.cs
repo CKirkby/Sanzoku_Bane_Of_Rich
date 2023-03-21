@@ -16,6 +16,6 @@ public class PlayerInventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(score);
+        Debug.Log("Score is " + score);
     }
 }
