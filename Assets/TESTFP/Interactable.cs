@@ -9,7 +9,7 @@ public abstract class Interactable : MonoBehaviour
     public virtual void Awake()
     {
         gameObject.layer = 11;
-        Renderer meshRenderer = gameObject.GetComponent<MeshRenderer>();
+        Renderer = gameObject.GetComponent<MeshRenderer>();
     }
 
     public abstract void OnInteract();
