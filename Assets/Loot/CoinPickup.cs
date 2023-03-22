@@ -25,12 +25,12 @@ public class CoinPickup: Interactable
 
     public override void OnLoseFocus()
     {
-        Renderer.material.color = default;
+        Renderer.material.color = Color.gray;
     }
 
     private IEnumerator WaitForSecs()
     {
-        yield return new WaitForSeconds(0.05f);
+        yield return new WaitForSeconds(0.19f);
         Destroy(gameObject);
     }
 }

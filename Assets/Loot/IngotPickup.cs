@@ -29,12 +29,12 @@ public class IngotPickup: Interactable
 
     public override void OnLoseFocus()
     {
-        Renderer.material.color = default(Color);
+        Renderer.material.color = Color.gray;
     }
 
     private IEnumerator WaitForSecs()
     {
-        yield return new WaitForSeconds(0.05f);
+        yield return new WaitForSeconds(0.15f);
         Destroy(gameObject);
     }
 }
