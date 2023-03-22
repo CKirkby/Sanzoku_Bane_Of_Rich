@@ -216,8 +216,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: 672c548568e1fdd43af68f648216c435,
-    type: 3}
+  m_Motion: {fileID: 7400000, guid: c91389c39d842cc4190ea8be0836798a, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -404,12 +403,6 @@ AnimatorController:
   - m_Name: isJumpAttack
     m_Type: 4
     m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 0}
-  - m_Name: Blend
-    m_Type: 1
-    m_DefaultFloat: 50
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
@@ -656,8 +649,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: 0d285804c946c7e44bf37fccaa61e63f,
-    type: 3}
+  m_Motion: {fileID: 7400000, guid: fe7d5ea7d0c1b2f40a63d58d71395d4b, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
