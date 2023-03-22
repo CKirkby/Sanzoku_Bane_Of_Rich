@@ -20,11 +20,17 @@ public class CoinPickup: Interactable
     {
         _audioSource.PlayOneShot(audioCollection[Random.Range(0, audioCollection.Length - 1)]);
         pInventory.score += value;
-        Destroy(gameObject);
+        StartCoroutine(WaitForSecs());
     }
 
     public override void OnLoseFocus()
     {
         Renderer.material.color = default;
+    }
+
+    private IEnumerator WaitForSecs()
+    {
+        yield return new WaitForSeconds(0.05f);
+        Destroy(gameObject);
     }
 }
