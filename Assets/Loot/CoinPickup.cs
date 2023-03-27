@@ -4,9 +4,9 @@ using UnityEngine;
 public class CoinPickup: Interactable
 {
     [Header("Refrences")]
-    public PlayerInventory pInventory;
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private AudioClip[] audioCollection;
+    public PlayerInventory pInventory;
 
     [Header("Coin Properties")]
     [SerializeField] private float value = 5;
@@ -30,7 +30,7 @@ public class CoinPickup: Interactable
 
     private IEnumerator WaitForSecs()
     {
-        yield return new WaitForSeconds(0.05f);
+        yield return new WaitForSeconds(0.1f);
         Destroy(gameObject);
     }
 }

@@ -20,6 +20,7 @@ public class PirateFOV : MonoBehaviour
 
     [Header("Auxillary Elements")]
     public bool canSeePlayer;
+    public bool hasSeenPlayerFirstTime;
     public GameObject playerRef;
     public GameObject castPoint;
     

@@ -72,7 +72,7 @@ public class PirateStateMachine : MonoBehaviour
         if(pManager.pFOV.canSeePlayer == true)
         {
             pManager.navMeshAgent.speed = 0;
-            pManager.pAnimator.SetBool("hasSeenPlayer", true);
+            pManager.pAnimator.SetTrigger ("hasSeenPlayer");
             StartCoroutine(WaitForAnim());
         }
     }
@@ -82,6 +82,7 @@ public class PirateStateMachine : MonoBehaviour
         if (pManager.pFOV.canSeePlayer == false)
         {
             pCurrentState = PStateMachine.Alert;
+            pManager.pAnimator.SetTrigger("hasLostPlayer");
         }
     }
 
