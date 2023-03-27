@@ -7,7 +7,7 @@ public class PirateFOV : MonoBehaviour
     [SerializeField]
     internal PirateManager pManager;
 
-    [Header("Raycast Parameters")]
+    [Header("Raycast Options")]
     public LayerMask targetMask;
     public LayerMask obstructionMask;
 
@@ -15,7 +15,8 @@ public class PirateFOV : MonoBehaviour
     [SerializeField]
     public float radius;
     [Range(0,360)]
-    [SerializeField] public float angle;
+    [SerializeField]
+    public float angle;
 
     [Header("Auxillary Elements")]
     public bool canSeePlayer;

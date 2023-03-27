@@ -20,20 +20,17 @@ public class CoinPickup: Interactable
     {
         _audioSource.PlayOneShot(audioCollection[Random.Range(0, audioCollection.Length - 1)]);
         pInventory.score += value;
-        Destroy(gameObject);
+        StartCoroutine(WaitForSecs());
     }
 
     public override void OnLoseFocus()
     {
-        Renderer.material.color = Color.gray;
+        Renderer.material.color = default;
     }
-<<<<<<< HEAD
 
     private IEnumerator WaitForSecs()
     {
-        yield return new WaitForSeconds(0.19f);
+        yield return new WaitForSeconds(0.05f);
         Destroy(gameObject);
     }
-=======
->>>>>>> parent of af75d8c (Implementation of Health system UI and new map)
 }

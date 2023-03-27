@@ -5,10 +5,7 @@ using UnityEngine;
 
 public class UI : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI healthNumber = default;
-    [SerializeField] private TextMeshProUGUI scoreNumber = default;
-
-    public PlayerInventory inventory;
+    [SerializeField] private TextMeshProUGUI healthText = default;
 
     private void OnEnable()
     {
@@ -26,22 +23,10 @@ public class UI : MonoBehaviour
     private void Start()
     {
         UpdateHeath(100);
-        
-    }
-
-    private void Update()
-    {
-        UpdateScore(0);
     }
 
     private void UpdateHeath(float currentHealth)
     {
-        healthNumber.text = currentHealth.ToString("00");
-    }
-
-    private void UpdateScore(float currentScore)
-    {
-        currentScore = inventory.score;
-        scoreNumber.text = currentScore.ToString("00");
+        healthText.text = currentHealth.ToString("00");
     }
 }
