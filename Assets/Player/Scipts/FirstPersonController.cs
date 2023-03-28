@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class FirstPersonController : MonoBehaviour
@@ -101,6 +102,7 @@ public class FirstPersonController : MonoBehaviour
     [SerializeField] private AudioClip[] woodClip = default;
     [SerializeField] private AudioClip[] stoneClip = default;
     [SerializeField] private AudioClip[] metalClip = default;
+    [SerializeField] private AudioClip[] gravelClip = default;
     private float footstepTimer = 0;
     private float GetCurrentOffset => isCrouching ? baseStepSpeed * crouchStepMultiplier : IsSprinting ? baseStepSpeed * sprintStepMultiplier : baseStepSpeed;
 
@@ -164,7 +166,6 @@ public class FirstPersonController : MonoBehaviour
         float moveDirectionY = moveDirection.y;
         moveDirection = (transform.TransformDirection(Vector3.forward) * currentInput.x) + (transform.TransformDirection(Vector3.right) * currentInput.y);
         moveDirection.y = moveDirectionY;
- 
     }
 
     private void MouseLook()
@@ -342,6 +343,9 @@ public class FirstPersonController : MonoBehaviour
                         break;
                     default:
                         footstepAudioSource.PlayOneShot(woodClip[Random.Range(0, woodClip.Length - 1)]);
+                        break;
+                    case "Footsteps/Gravel":
+                        footstepAudioSource.PlayOneShot(gravelClip[Random.Range(0,gravelClip.Length - 1)]);
                         break;
                 }
             }

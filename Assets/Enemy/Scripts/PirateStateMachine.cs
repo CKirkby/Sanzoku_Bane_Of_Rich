@@ -8,20 +8,20 @@ using UnityEngine.AI;
 
 public class PirateStateMachine : MonoBehaviour
 {
-    [SerializeField]
-    PirateManager pManager;
+    [SerializeField] PirateManager pManager;
+    [SerializeField] private int cooldownTime;
+    [SerializeField] private int nextAttackTime;
 
     internal enum PStateMachine {Idle, Patrolling, Chasing, Alert, Attacking}
     [SerializeField]
     internal PStateMachine pCurrentState = PStateMachine.Patrolling ;
 
-    // Update is called once per frame
+
+
 
     void Update()
     {
-
-        //Debug.Log(pCurrentState);
-
+    // START OF STATE MACHINE ---------------------------------------------------------------------------------------------------------------------
         switch (pCurrentState)
         {
             case PStateMachine.Idle:
@@ -67,6 +67,8 @@ public class PirateStateMachine : MonoBehaviour
         }
     }
 
+    // END OF STATE MACHINE ------------------------------------------------------------------------------------------------------------------------
+
     internal void StartChasing()
     {
         if(pManager.pFOV.canSeePlayer == true)
@@ -80,6 +82,7 @@ public class PirateStateMachine : MonoBehaviour
             }
             else
             {
+                pManager.pAnimator.SetTrigger("isChasing");
                 pCurrentState = PStateMachine.Chasing;
             }
         }

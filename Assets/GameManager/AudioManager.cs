@@ -9,21 +9,21 @@ public class AudioManager : MonoBehaviour
 
     [Header("Audio Parameters")]
     [SerializeField] private AudioSource m_AudioSource;
-    [SerializeField] private AudioClip[] ambianceCollection;
+    [SerializeField] private AudioClip musicClip;
     [SerializeField] private AudioClip attackClip;
 
     [Header("Refrences")]
     [SerializeField] private PirateFOV pFOV;
 
-
-    // Start is called before the first frame update
     void Start()
     {
         if (useAmbiance)
-        Ambiance();
+        {
+            Ambiance();
+            m_AudioSource.loop = true;
+        }
     }
 
-    // Update is called once per frame
     void Update()
     { 
       /*  while(pFOV.canSeePlayer == true)
@@ -34,6 +34,6 @@ public class AudioManager : MonoBehaviour
 
     private void Ambiance()
     {
-        m_AudioSource.PlayOneShot(ambianceCollection[Random.Range(0, ambianceCollection.Length - 1)]);
+        m_AudioSource.PlayOneShot(musicClip);
     }
 }
