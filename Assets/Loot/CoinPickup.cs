@@ -30,7 +30,7 @@ public class CoinPickup: Interactable
 
     private IEnumerator WaitForSecs()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.15f);
         Destroy(gameObject);
     }
 }

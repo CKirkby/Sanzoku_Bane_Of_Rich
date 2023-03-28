@@ -2,10 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class UI : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI healthText = default;
+    [Header("Refrences")]
+    [SerializeField] private TextMeshProUGUI healthNumber = default;
+    [SerializeField] private TextMeshProUGUI scoreNumber = default;
+    public PlayerInventory pInventory;
 
     private void OnEnable()
     {
@@ -25,8 +29,13 @@ public class UI : MonoBehaviour
         UpdateHeath(100);
     }
 
+    private void Update()
+    {
+        scoreNumber.text = pInventory.score.ToString();
+    }
+
     private void UpdateHeath(float currentHealth)
     {
-        healthText.text = currentHealth.ToString("00");
+        healthNumber.text = currentHealth.ToString("00");
     }
 }

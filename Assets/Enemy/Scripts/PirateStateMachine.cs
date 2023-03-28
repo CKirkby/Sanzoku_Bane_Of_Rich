@@ -71,9 +71,17 @@ public class PirateStateMachine : MonoBehaviour
     {
         if(pManager.pFOV.canSeePlayer == true)
         {
-            pManager.navMeshAgent.speed = 0;
-            pManager.pAnimator.SetTrigger ("hasSeenPlayer");
-            StartCoroutine(WaitForAnim());
+            if(pManager.pFOV.hasSeenPlayerFirstTime == false)
+            {
+                pManager.navMeshAgent.speed = 0;
+                pManager.pAnimator.SetTrigger("hasSeenPlayer");
+                pManager.pFOV.hasSeenPlayerFirstTime = true;
+                StartCoroutine(WaitForAnim());
+            }
+            else
+            {
+                pCurrentState = PStateMachine.Chasing;
+            }
         }
     }
 
@@ -82,24 +90,23 @@ public class PirateStateMachine : MonoBehaviour
         if (pManager.pFOV.canSeePlayer == false)
         {
             pCurrentState = PStateMachine.Alert;
-            pManager.pAnimator.SetTrigger("hasLostPlayer");
         }
     }
 
     private IEnumerator WaitForAnim()
     {
-        yield return new WaitForSeconds(2.3f);
+        yield return new WaitForSeconds(1.15f);
         pCurrentState = PStateMachine.Chasing;
     }
 
     internal IEnumerator AttackingAnim()
     {
-        pManager.pAnimator.SetBool("isAttacking", true);
-        yield return new WaitForSeconds(3.5f);
+        pManager.pAnimator.SetTrigger("isAttacking");
+        yield return new WaitForSeconds(2f);
       
         if (Vector3.Distance(transform.position, pManager.player.transform.position) > 3.5f)
         {
-            pManager.pAnimator.SetBool("isAttacking", false);
+
             pCurrentState = PStateMachine.Chasing;
         }
         else

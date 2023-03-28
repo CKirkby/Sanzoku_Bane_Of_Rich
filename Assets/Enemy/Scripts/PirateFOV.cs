@@ -20,7 +20,7 @@ public class PirateFOV : MonoBehaviour
 
     [Header("Auxillary Elements")]
     public bool canSeePlayer;
-    public bool hasSeenPlayerFirstTime;
+    public bool hasSeenPlayerFirstTime = false;
     public GameObject playerRef;
     public GameObject castPoint;
     
@@ -57,20 +57,24 @@ public class PirateFOV : MonoBehaviour
                 {
                     Debug.Log("I see you");
                     canSeePlayer = true;
+                    radius = 14;
                 }
                 else
                 {
                     canSeePlayer = false;
+                    radius = 7;
                 }
             }
             else
             {
                 canSeePlayer= false;
+                radius = 7;
             }
         }
         else if (canSeePlayer)
         { 
             canSeePlayer = false;
+            radius = 7;
         }
     
     }
