@@ -10,6 +10,7 @@ public class IngotPickup: Interactable
     [Header("Refrences")]
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private AudioClip[] audioCollection;
+    [SerializeField] private Material originalMat;
     public PlayerInventory pInventory;
 
     [Header("Coin Properties")]
@@ -29,7 +30,7 @@ public class IngotPickup: Interactable
 
     public override void OnLoseFocus()
     {
-        Renderer.material.color = default(Color);
+        Renderer.material = originalMat;
     }
 
     private IEnumerator WaitForSecs()

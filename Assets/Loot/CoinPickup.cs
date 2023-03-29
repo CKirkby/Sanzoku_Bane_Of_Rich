@@ -6,6 +6,7 @@ public class CoinPickup: Interactable
     [Header("Refrences")]
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private AudioClip[] audioCollection;
+    [SerializeField] private Material originalMat;
     public PlayerInventory pInventory;
 
     [Header("Coin Properties")]
@@ -25,7 +26,7 @@ public class CoinPickup: Interactable
 
     public override void OnLoseFocus()
     {
-        Renderer.material.color = default;
+        Renderer.material = originalMat;
     }
 
     private IEnumerator WaitForSecs()

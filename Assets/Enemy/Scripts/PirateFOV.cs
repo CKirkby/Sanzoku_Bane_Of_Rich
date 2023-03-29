@@ -62,19 +62,19 @@ public class PirateFOV : MonoBehaviour
                 else
                 {
                     canSeePlayer = false;
-                    radius = 7;
+                    radius = 4;
                 }
             }
             else
             {
                 canSeePlayer= false;
-                radius = 7;
+                radius = 4;
             }
         }
         else if (canSeePlayer)
         { 
             canSeePlayer = false;
-            radius = 7;
+            radius = 4;
         }
     
     }

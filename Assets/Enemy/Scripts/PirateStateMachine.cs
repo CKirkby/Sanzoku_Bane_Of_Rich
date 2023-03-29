@@ -11,8 +11,9 @@ public class PirateStateMachine : MonoBehaviour
     [SerializeField] PirateManager pManager;
     [SerializeField] private int cooldownTime;
     [SerializeField] private int nextAttackTime;
+    private bool hasLostPlayer = false;
 
-    internal enum PStateMachine {Idle, Patrolling, Chasing, Alert, Attacking}
+    internal enum PStateMachine {Idle, Patrolling, Chasing, Alert, Attacking, Searching}
     [SerializeField]
     internal PStateMachine pCurrentState = PStateMachine.Patrolling ;
 
@@ -39,7 +40,7 @@ public class PirateStateMachine : MonoBehaviour
             case PStateMachine.Chasing:
                     pManager.pAnimator.SetBool("isRunning", true);
                 //Sets the Pirate to chase the player.
-                    pManager.navMeshAgent.speed = 4f;
+                    pManager.navMeshAgent.speed = 2f;
                     transform.LookAt(pManager.player.transform.position);
                     pManager.navMeshAgent.SetDestination(pManager.player.transform.position);
                     if (Vector3.Distance(transform.position, pManager.player.transform.position) < 3.5f)
@@ -53,8 +54,13 @@ public class PirateStateMachine : MonoBehaviour
                 //Returns the Pirate to patrolling but in alert state.
                     pManager.pPatrol.Patrol();
                     pManager.pAnimator.SetBool("isAlert", true);
+                    pManager.pFOV.radius = 7;
                     pManager.navMeshAgent.speed = 1.7f;
                     StartChasing();
+                break;
+
+            case PStateMachine.Searching:
+
                 break;
             
             case PStateMachine.Attacking:
@@ -92,7 +98,8 @@ public class PirateStateMachine : MonoBehaviour
     {
         if (pManager.pFOV.canSeePlayer == false)
         {
-            pCurrentState = PStateMachine.Alert;
+            pCurrentState = PStateMachine.Searching;
+            hasLostPlayer = true;
         }
     }
 

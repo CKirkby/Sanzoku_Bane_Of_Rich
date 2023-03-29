@@ -32,7 +32,7 @@ public class PiratePatrol : MonoBehaviour
 
     internal void Patrol()
     {
-        if (pManager.pFOV.canSeePlayer == false)
+        if (pManager.pFOV.canSeePlayer == false && pManager.pFOV.hasSeenPlayerFirstTime == false)
         {
             //Adds the float for current waypoint into the array and begins to move towards them in order
             Transform wp = waypoints[currentWaypoint];

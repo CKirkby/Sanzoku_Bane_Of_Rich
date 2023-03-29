@@ -278,6 +278,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7b0f98781075b4a478af08afc6a1d40d, type: 3}
   - {fileID: 8300000, guid: 36db8dfb3569b48b5a823efb2f65395e, type: 3}
   - {fileID: 8300000, guid: 7e56c59820ec64b4a9bc1c6ab40c7791, type: 3}
+  originalMat: {fileID: 2100000, guid: 46942e7ff881c4d4ca139892f7a02acc, type: 2}
   pInventory: {fileID: 0}
   value: 5
 --- !u!54 &-3219491139810717073
