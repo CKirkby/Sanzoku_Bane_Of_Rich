@@ -11,7 +11,7 @@ public class PirateStateMachine : MonoBehaviour
     [SerializeField] PirateManager pManager;
     [SerializeField] private int cooldownTime;
     [SerializeField] private int nextAttackTime;
-    private bool hasLostPlayer = false;
+    internal bool hasLostPlayer = false;
 
     internal enum PStateMachine {Idle, Patrolling, Chasing, Alert, Attacking, Searching}
     [SerializeField]
@@ -60,7 +60,11 @@ public class PirateStateMachine : MonoBehaviour
                 break;
 
             case PStateMachine.Searching:
+                if (hasLostPlayer == true)
+                {
+                    pManager.pAnimator.SetTrigger("hasLostPlayer");
 
+                }
                 break;
             
             case PStateMachine.Attacking:
