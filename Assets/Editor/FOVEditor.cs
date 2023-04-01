@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class FOVEditor : Editor
 {
+
     private void OnSceneGUI()
     {
         PirateFOV fov = (PirateFOV)target;

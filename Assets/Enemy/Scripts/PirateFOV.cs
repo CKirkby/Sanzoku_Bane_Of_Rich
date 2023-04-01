@@ -12,14 +12,17 @@ public class PirateFOV : MonoBehaviour
     public LayerMask obstructionMask;
 
     [Header("FOV Options")]
-    [SerializeField]
     public float radius;
     [Range(0,360)]
-    [SerializeField]
     public float angle;
 
-    [Header("Auxillary Elements")]
+    [Header("Detection Elements")]
     public bool canSeePlayer;
+    [SerializeField] internal float detectionPoints;
+    [SerializeField] internal float minDetectPoints = 0;
+    [SerializeField] internal float maxDetectPoints = 10;
+
+    [Header("Auxillary Elements")]
     public bool hasSeenPlayerFirstTime = false;
     public GameObject playerRef;
     public GameObject castPoint;
@@ -27,6 +30,7 @@ public class PirateFOV : MonoBehaviour
     internal void Start()
     { 
         StartCoroutine(FOVRoutine());
+        detectionPoints = 0;
     }
 
     internal IEnumerator FOVRoutine()
@@ -57,26 +61,40 @@ public class PirateFOV : MonoBehaviour
                 {
                     Debug.Log("I see you");
                     canSeePlayer = true;
-                    radius = 14;
+                    Detection();
                 }
                 else
                 {
                     canSeePlayer = false;
-                    radius = 4;
+                    Detection();
                 }
             }
             else
             {
-                canSeePlayer= false;
-                radius = 4;
+                canSeePlayer = false;
+                Detection();
             }
         }
         else if (canSeePlayer)
         { 
             canSeePlayer = false;
-            radius = 4;
+            Detection();
         }
     
+    }
+
+    internal void Detection()
+    {
+        detectionPoints = Mathf.Clamp(detectionPoints, minDetectPoints, maxDetectPoints);
+
+        if(canSeePlayer == true)
+        {
+            detectionPoints++;
+        }
+        else
+        {
+            detectionPoints--;
+        }
     }
 
 }
