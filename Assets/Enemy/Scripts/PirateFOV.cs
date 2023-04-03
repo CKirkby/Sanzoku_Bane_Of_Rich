@@ -31,6 +31,7 @@ public class PirateFOV : MonoBehaviour
     { 
         StartCoroutine(FOVRoutine());
         detectionPoints = 0;
+        detectionPoints = Mathf.Clamp(detectionPoints, minDetectPoints, maxDetectPoints);
     }
 
     internal IEnumerator FOVRoutine()
@@ -66,27 +67,25 @@ public class PirateFOV : MonoBehaviour
                 else
                 {
                     canSeePlayer = false;
-                    Detection();
+                    detectionPoints --;
                 }
             }
             else
             {
                 canSeePlayer = false;
-                Detection();
+                detectionPoints--;
             }
         }
         else if (canSeePlayer)
         { 
             canSeePlayer = false;
-            Detection();
+            detectionPoints--;
         }
     
     }
 
     internal void Detection()
-    {
-        detectionPoints = Mathf.Clamp(detectionPoints, minDetectPoints, maxDetectPoints);
-
+    { 
         if(canSeePlayer == true)
         {
             detectionPoints++;

@@ -36,12 +36,12 @@ public class PirateSearch : MonoBehaviour
 
         if (finalPosition.x < 0)
         {
-            
+            SearchWait();
         }
     }
 
     internal IEnumerator SearchWait()
     {
-        return null; 
+        yield return new WaitForSeconds(2);
     }
 }

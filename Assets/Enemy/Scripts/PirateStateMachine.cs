@@ -38,7 +38,7 @@ public class PirateStateMachine : MonoBehaviour
                  break;
        
             case PStateMachine.Chasing:
-                    pManager.pAnimator.SetBool("isRunning", true);
+                    pManager.pAnimator.SetBool("isChasing", true);
                 //Sets the Pirate to chase the player.
                     pManager.navMeshAgent.speed = 2f;
                     transform.LookAt(pManager.player.transform.position);
@@ -63,7 +63,7 @@ public class PirateStateMachine : MonoBehaviour
                 if (hasLostPlayer == true)
                 {
                     pManager.pAnimator.SetTrigger("hasLostPlayer");
-
+                    pManager.pSearch.SearchForPlayer();
                 }
                 break;
             
@@ -81,33 +81,23 @@ public class PirateStateMachine : MonoBehaviour
 
     internal void StartChasing()
     {
-        if(pManager.pFOV.canSeePlayer == true)
+        if(pManager.pFOV.detectionPoints >= 10)
         {
-            if(pManager.pFOV.hasSeenPlayerFirstTime == false)
-            {
-                pManager.navMeshAgent.speed = 0;
                 pManager.pAnimator.SetTrigger("hasSeenPlayer");
-                pManager.pFOV.hasSeenPlayerFirstTime = true;
-                StartCoroutine(WaitForAnim());
-            }
-            else
-            {
-                pManager.pAnimator.SetTrigger("isChasing");
-                pCurrentState = PStateMachine.Chasing;
-            }
+                StartCoroutine(WaitForDrawSword());
         }
     }
 
     internal void EndChasing()
     {
-        if (pManager.pFOV.canSeePlayer == false)
+        if (pManager.pFOV.detectionPoints <= 0)
         {
             pCurrentState = PStateMachine.Searching;
             hasLostPlayer = true;
         }
     }
 
-    private IEnumerator WaitForAnim()
+    private IEnumerator WaitForDrawSword()
     {
         yield return new WaitForSeconds(1.15f);
         pCurrentState = PStateMachine.Chasing;
@@ -120,7 +110,6 @@ public class PirateStateMachine : MonoBehaviour
       
         if (Vector3.Distance(transform.position, pManager.player.transform.position) > 3.5f)
         {
-
             pCurrentState = PStateMachine.Chasing;
         }
         else
