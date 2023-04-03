@@ -64,6 +64,7 @@ public class PirateStateMachine : MonoBehaviour
                 {
                     pManager.pAnimator.SetTrigger("hasLostPlayer");
                     pManager.pSearch.SearchForPlayer();
+                    SearchingTime();
                 }
                 break;
             
@@ -116,5 +117,12 @@ public class PirateStateMachine : MonoBehaviour
         {
             pCurrentState = PStateMachine.Attacking;
         }
+    }
+
+    internal IEnumerator SearchingTime()
+    {
+        yield return new WaitForSeconds(10);
+
+        pCurrentState = PStateMachine.Alert;
     }
 }

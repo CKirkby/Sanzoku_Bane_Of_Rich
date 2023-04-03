@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class DamagePlayer : MonoBehaviour
 {
-    [SerializeField] private GameObject axePoint;
+    [SerializeField] private GameObject swordPoint;
     [SerializeField] private float damage;
     public PlayerHealth pHealth;
 

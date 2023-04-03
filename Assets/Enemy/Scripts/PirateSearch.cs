@@ -26,16 +26,18 @@ public class PirateSearch : MonoBehaviour
     internal void SearchForPlayer()
     {
         Vector3 finalPosition;
+        int point = Random.Range(10, 20); 
 
         Vector3 randomDirection = Random.insideUnitSphere * walkRadius;
 
         randomDirection += transform.position;
         NavMeshHit hit;
-        NavMesh.SamplePosition(randomDirection, out hit, walkRadius, 1);
+        NavMesh.SamplePosition(randomDirection, out hit, walkRadius, point);
         finalPosition = hit.position;
 
-        if (finalPosition.x < 0)
+        if (finalPosition.x < 0.8)
         {
+            Debug.Log(finalPosition.x);
             SearchWait();
         }
     }
