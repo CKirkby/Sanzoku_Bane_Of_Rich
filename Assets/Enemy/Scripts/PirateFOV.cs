@@ -18,8 +18,8 @@ public class PirateFOV : MonoBehaviour
 
     [Header("Detection Elements")]
     public bool canSeePlayer;
-    [Range (1, 50)]
-    [SerializeField] internal int detectionPoints;
+    [Range (1, 300)]
+    [SerializeField] internal float detectionPoints;
 
     [Header("Auxillary Elements")]
     public bool hasSeenPlayerFirstTime = false;
@@ -89,14 +89,14 @@ public class PirateFOV : MonoBehaviour
         if(canSeePlayer == true)
         {
             detectionPoints++;
-            if (detectionPoints > 50)
+            if (detectionPoints > 300)
             {
-                detectionPoints = 50;
+                detectionPoints = 300;
             }
         }
         else
         {
-            detectionPoints--;
+            detectionPoints -= 25 * Time.deltaTime;
             if(detectionPoints < 0)
             {
                 detectionPoints = 0;

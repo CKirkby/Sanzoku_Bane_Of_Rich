@@ -41,7 +41,7 @@ public class PirateStateMachine : MonoBehaviour
                     pManager.navMeshAgent.speed = 2f;
                     transform.LookAt(pManager.player.transform.position);
                     pManager.navMeshAgent.SetDestination(pManager.player.transform.position);
-                    if (Vector3.Distance(transform.position, pManager.player.transform.position) < 3.5f)
+                    if (Vector3.Distance(transform.position, pManager.player.transform.position) < 2f)
                     {
                         pCurrentState = PStateMachine.Attacking;
                     }
@@ -84,7 +84,7 @@ public class PirateStateMachine : MonoBehaviour
 
     internal void StartChasing()
     {
-        if(pManager.pFOV.detectionPoints >= 10)
+        if(pManager.pFOV.detectionPoints >= 300)
         {
                 pManager.pAnimator.SetTrigger("hasSeenPlayer");
                 StartCoroutine(WaitForDrawSword());
@@ -119,12 +119,14 @@ public class PirateStateMachine : MonoBehaviour
         pManager.pAnimator.SetTrigger("isAttacking");
         yield return new WaitForSeconds(2f);
       
-        if (Vector3.Distance(transform.position, pManager.player.transform.position) > 3.5f)
+        if (Vector3.Distance(transform.position, pManager.player.transform.position) > 2f)
         {
+            pManager.pAnimator.SetTrigger("isTooFar");
             pCurrentState = PStateMachine.Chasing;
         }
         else
         {
+            pManager.pAnimator.SetTrigger("isTooClose");
             pCurrentState = PStateMachine.Attacking;
         }
     }

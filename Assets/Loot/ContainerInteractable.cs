@@ -2,23 +2,21 @@
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class ContainerInteractable : Interactable
 {
 
     [Header("Audio Parameters")]
-    [SerializeField] private AudioSource _audioSource;
-    public AudioSource crashAudioClip;
-
-    [Header("LootSplosion Parameters")]
-    [SerializeField] private GameObject[] lootObjects;
+    [SerializeField] private AudioSource crashAudioClip;
+    [SerializeField] private AudioClip[] coinCollection;
 
     [Header("Refrences")]
     [SerializeField] private Material originalMat;
+    [SerializeField] private LootDropContainer ldCont;
     public MeshRenderer wholeCrate;
     public BoxCollider boxCollider;
     public GameObject fracturedCrate;
-
 
     public override void OnFocus()
     {
@@ -31,16 +29,15 @@ public class ContainerInteractable : Interactable
         boxCollider.enabled = false;
         fracturedCrate.SetActive(true);
         crashAudioClip.Play();
+        ldCont.LootDrop();
+        crashAudioClip.PlayOneShot(coinCollection[Random.Range(0, coinCollection.Length - 1)]);
         StartCoroutine(Destroy());
-    
     }
 
     public override void OnLoseFocus()
     {
         Renderer.material = originalMat;
     }
-
-    //CREATE A LOOTSPLOSION
 
     private IEnumerator Destroy()
     {
