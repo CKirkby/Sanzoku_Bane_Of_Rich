@@ -10,14 +10,13 @@ public class ContainerInteractable : Interactable
     [SerializeField] private AudioSource _audioSource;
     public AudioSource crashAudioClip;
 
+    [Header("LootSplosion Parameters")]
+    [SerializeField] private GameObject[] lootObjects;
+
     [Header("Refrences")]
     [SerializeField] private Material originalMat;
-
-    [Header("Whole Create")]
     public MeshRenderer wholeCrate;
     public BoxCollider boxCollider;
-
-    [Header("Fractured Create")]
     public GameObject fracturedCrate;
 
 
@@ -32,10 +31,21 @@ public class ContainerInteractable : Interactable
         boxCollider.enabled = false;
         fracturedCrate.SetActive(true);
         crashAudioClip.Play();
+        StartCoroutine(Destroy());
+    
     }
 
     public override void OnLoseFocus()
     {
         Renderer.material = originalMat;
+    }
+
+    //CREATE A LOOTSPLOSION
+
+    private IEnumerator Destroy()
+    {
+        yield return new WaitForSeconds(7);
+
+        Destroy(gameObject);
     }
 }

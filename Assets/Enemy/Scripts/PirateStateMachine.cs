@@ -1,17 +1,14 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Threading.Tasks.Sources;
-using Unity.VisualScripting;
-using UnityEditor.Rendering;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class PirateStateMachine : MonoBehaviour
 {
     [SerializeField] PirateManager pManager;
     [SerializeField] private int cooldownTime;
     [SerializeField] private int nextAttackTime;
+    [SerializeField] internal float timeSinceLostPlayer = 0f;
     internal bool hasLostPlayer = false;
+    internal float alertStartTime;
 
     internal enum PStateMachine {Idle, Patrolling, Chasing, Alert, Attacking, Searching}
     [SerializeField]
@@ -27,6 +24,7 @@ public class PirateStateMachine : MonoBehaviour
         {
             case PStateMachine.Idle:
                 pManager.pAnimator.SetBool("isIdle", true);
+                //CREATE EXIT
                 break;
  
              case PStateMachine.Patrolling:
@@ -56,15 +54,19 @@ public class PirateStateMachine : MonoBehaviour
                     pManager.pAnimator.SetBool("isAlert", true);
                     pManager.pFOV.radius = 7;
                     pManager.navMeshAgent.speed = 1.7f;
-                    StartChasing();
+                        StartChasing();
+                    alertStartTime = Time.time;
                 break;
 
             case PStateMachine.Searching:
                 if (hasLostPlayer == true)
                 {
+                    Debug.Log("Searching for player");
                     pManager.pAnimator.SetTrigger("hasLostPlayer");
+                    
                     pManager.pSearch.SearchForPlayer();
-                    SearchingTime();
+                    Debug.Log("Still searching");
+                    StartCoroutine(SearchingTime());
                 }
                 break;
             
@@ -91,10 +93,18 @@ public class PirateStateMachine : MonoBehaviour
 
     internal void EndChasing()
     {
-        if (pManager.pFOV.detectionPoints <= 0)
+        if (pManager.pFOV.detectionPoints <= 0 && pManager.pFOV.canSeePlayer == false)
         {
-            pCurrentState = PStateMachine.Searching;
-            hasLostPlayer = true;
+            if(pCurrentState == PStateMachine.Alert && Time.time - alertStartTime > 5f)
+            {
+                pCurrentState = PStateMachine.Patrolling;
+                pManager.pAnimator.SetBool("isAlert", true);
+            }
+            else
+            {
+                pCurrentState = PStateMachine.Searching;
+                hasLostPlayer = true;
+            }
         }
     }
 

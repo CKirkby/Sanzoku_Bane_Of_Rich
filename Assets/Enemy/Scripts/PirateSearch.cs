@@ -9,41 +9,34 @@ public class PirateSearch : MonoBehaviour
     PirateManager pManager;
 
     [Header("Searching Parameters")]
-    [SerializeField] internal float walkRadius;
+    [SerializeField] internal float range;
+    [SerializeField] internal Transform CenterPoint;
 
-    // Start is called before the first frame update
-    void Start()
+    bool RandomPoint(Vector3 center, float range, out Vector3 result)
     {
-       
-    }
+        Vector3 randomPoint = center + Random.insideUnitSphere * range;
+        NavMeshHit hit;
+        if(NavMesh.SamplePosition(randomPoint, out hit, 1.0f, NavMesh.AllAreas))
+        {
+            result = hit.position;
+            return true;
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-       
+        result = Vector3.zero;
+        return false;  
     }
 
     internal void SearchForPlayer()
     {
-        Vector3 finalPosition;
-        int point = Random.Range(10, 20); 
-
-        Vector3 randomDirection = Random.insideUnitSphere * walkRadius;
-
-        randomDirection += transform.position;
-        NavMeshHit hit;
-        NavMesh.SamplePosition(randomDirection, out hit, walkRadius, point);
-        finalPosition = hit.position;
-
-        if (finalPosition.x < 0.8)
+        if (pManager.navMeshAgent.remainingDistance <= pManager.navMeshAgent.stoppingDistance)
         {
-            Debug.Log(finalPosition.x);
-            SearchWait();
+            Vector3 point;
+            if (RandomPoint(CenterPoint.position, range, out point))
+            {
+                Debug.DrawRay(point, Vector3.up, Color.blue, 1f);
+                pManager.navMeshAgent.SetDestination(point);
+            }
         }
     }
 
-    internal IEnumerator SearchWait()
-    {
-        yield return new WaitForSeconds(2);
-    }
 }
