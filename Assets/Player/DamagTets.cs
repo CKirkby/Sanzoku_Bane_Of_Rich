@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class DamagTets : MonoBehaviour
 {
+    public PlayerHealth pHealh;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
-            PlayerHealth.OnTakeDamage(15);
+            pHealh.ApplyDamage(25);
     }
 
 

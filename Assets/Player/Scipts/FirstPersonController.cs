@@ -109,6 +109,7 @@ public class FirstPersonController : MonoBehaviour
     //Refrences
     private Camera playerCamera;
     private CharacterController characterController;
+    public PauseMenu pMenu;
 
     //PLayerMovement
     private Vector3 moveDirection;
@@ -132,6 +133,8 @@ public class FirstPersonController : MonoBehaviour
         if (CanMove)
         {
             MovementInput();
+
+            if(pMenu.isPaused == false)
             MouseLook();
 
             if (canJump)
@@ -170,11 +173,13 @@ public class FirstPersonController : MonoBehaviour
 
     private void MouseLook()
     {
-        rotationX -= Input.GetAxis("Mouse Y") * lookSpeedY;
-        rotationX = Mathf.Clamp(rotationX, -upperLookLimit, lowerLookLimit);
-        playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
+        {
+            rotationX -= Input.GetAxis("Mouse Y") * lookSpeedY;
+            rotationX = Mathf.Clamp(rotationX, -upperLookLimit, lowerLookLimit);
+            playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
 
-        transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeedX, 0);
+            transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeedX, 0);
+        }
     }
 
     private void Jump()

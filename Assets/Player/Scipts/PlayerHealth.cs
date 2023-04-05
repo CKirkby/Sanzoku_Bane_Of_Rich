@@ -11,7 +11,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private float timeForRegenStart = 3;
     [SerializeField] private float healthValueIncrement = 1;
     [SerializeField] private float healthTimeIncrement = 0.1f;
-    private float currentHealth;
+    public float currentHealth;
     private Coroutine regenerateHealth;
     public static Action<float> OnTakeDamage;
     public static Action<float> OnDamage;
