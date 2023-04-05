@@ -123,9 +123,9 @@ public class FirstPersonController : MonoBehaviour
         defaultYPos = playerCamera.transform.localPosition.y;
         defaultFov = playerCamera.fieldOfView;
 
-        //Locks the cursor and hides it.
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        //Locks the cursor and hides it unless paused.
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
     }
 
     void Update()
@@ -159,6 +159,17 @@ public class FirstPersonController : MonoBehaviour
                 FootSteps();
 
             ApplyFinalMovements();
+        }
+
+        if(pMenu.isPaused == true)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
     }
 
