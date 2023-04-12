@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
@@ -8,12 +7,22 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private bool useAmbiance = true;
 
     [Header("Audio Parameters")]
-    [SerializeField] private AudioSource m_AudioSource;
+    public AudioSource m_AudioSource;
     [SerializeField] private AudioClip musicClip;
     [SerializeField] private AudioClip attackClip;
 
     [Header("Refrences")]
     [SerializeField] private PirateFOV pFOV;
+
+    private static AudioManager instance = null;
+
+    public static AudioManager Instance { get { return instance; }}
+
+    private void Awake()
+    {
+        instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
 
     void Start()
     {
