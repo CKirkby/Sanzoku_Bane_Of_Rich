@@ -13,7 +13,6 @@ public class ContainerInteractable : Interactable
 
     [Header("Refrences")]
     [SerializeField] private Material originalMat;
-    [SerializeField] private LootDropContainer ldCont;
     public MeshRenderer wholeCrate;
     public BoxCollider boxCollider;
     public GameObject fracturedCrate;

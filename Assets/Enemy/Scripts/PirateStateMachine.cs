@@ -51,6 +51,7 @@ public class PirateStateMachine : MonoBehaviour
             case PStateMachine.Alert:
                 //Returns the Pirate to patrolling but in alert state.
                     pManager.pPatrol.Patrol();
+                    hasLostPlayer = false;
                     pManager.pAnimator.SetBool("isAlert", true);
                     pManager.pFOV.radius = 7;
                     pManager.navMeshAgent.speed = 1.7f;

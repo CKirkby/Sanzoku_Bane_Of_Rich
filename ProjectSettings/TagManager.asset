@@ -8,6 +8,7 @@ TagManager:
   - Footsteps/Metal
   - Footsteps/Stone
   - Footsteps/Gravel
+  - Loot
   layers:
   - Default
   - TransparentFX
