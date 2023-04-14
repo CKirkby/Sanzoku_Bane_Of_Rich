@@ -28,7 +28,7 @@ public class ContainerInteractable : Interactable
         boxCollider.enabled = false;
         fracturedCrate.SetActive(true);
         crashAudioClip.Play();
-        ldCont.LootDrop();
+        //ldCont.LootDrop();
         crashAudioClip.PlayOneShot(coinCollection[Random.Range(0, coinCollection.Length - 1)]);
         StartCoroutine(Destroy());
     }
