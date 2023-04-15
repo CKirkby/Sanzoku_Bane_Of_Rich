@@ -4,15 +4,29 @@ using UnityEngine;
 
 public class NpcSpawner : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject npc;
+    public int xPos;
+    public int zPos;
+    private int numOfSpawns = 0;
+
+    private void Start()
     {
-        
+        StartCoroutine(NpcSpawnerFunction());
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator NpcSpawnerFunction()
     {
-        
+        while (numOfSpawns < 100)
+        {
+            xPos = Random.Range(-80, 37);
+            zPos = Random.Range(-3, 4);
+
+            //Spawns the npc within given vectors of main map. 
+            Instantiate(npc, new Vector3(xPos, 0.01f, zPos), Quaternion.identity);
+
+            yield return new WaitForSeconds(0.1f);
+            numOfSpawns += 1;
+
+        }
     }
 }
