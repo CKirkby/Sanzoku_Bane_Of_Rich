@@ -22,7 +22,7 @@ public class MainMenu : MonoBehaviour
 
     public void ChangeVolume()
     {
-        volSlider.value = audioManager.m_AudioSource.volume;
+        audioManager.m_AudioSource.volume = volSlider.value;
     }
 
 }
