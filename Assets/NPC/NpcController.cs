@@ -24,9 +24,10 @@ public class NpcController : MonoBehaviour
 
     public void Update()
     {
-        if(agent != null && agent.remainingDistance <= agent.stoppingDistance)
+        animator.SetBool("IsWalking", true);
+
+        if (agent != null && agent.remainingDistance <= agent.stoppingDistance)
         {
-            animator.SetBool("IsWalking", true);
             agent.SetDestination(RandomLocation());
         }
     }

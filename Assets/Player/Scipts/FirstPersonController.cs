@@ -110,6 +110,8 @@ public class FirstPersonController : MonoBehaviour
     private Camera playerCamera;
     private CharacterController characterController;
     public PauseMenu pMenu;
+    public DeathMenu dMenu;
+    public LoadingScreen lScreen;
 
     //PLayerMovement
     private Vector3 moveDirection;
@@ -134,7 +136,7 @@ public class FirstPersonController : MonoBehaviour
         {
             MovementInput();
 
-            if(pMenu.isPaused == false)
+            if (pMenu.isPaused == false | dMenu.isDead == false || lScreen.isLoading == false)
             MouseLook();
 
             if (canJump)
@@ -161,7 +163,7 @@ public class FirstPersonController : MonoBehaviour
             ApplyFinalMovements();
         }
 
-        if(pMenu.isPaused == true)
+        if (pMenu.isPaused == true || dMenu.isDead == true || lScreen.isLoading == true)
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;

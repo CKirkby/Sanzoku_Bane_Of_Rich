@@ -17,6 +17,8 @@ public class PlayerHealth : MonoBehaviour
     public static Action<float> OnDamage;
     public static Action<float> OnHeal;
 
+    public DeathMenu dMenu;
+
     private void OnEnable()
     {
         OnTakeDamage += ApplyDamage;
@@ -57,9 +59,8 @@ public class PlayerHealth : MonoBehaviour
         if(regenerateHealth != null)
         {
             StopCoroutine(regenerateHealth);
+            dMenu.DeathScreenActivate();
         }
-
-        Debug.Log("You are dead");
     }
 
     private IEnumerator RegenerateHealth()

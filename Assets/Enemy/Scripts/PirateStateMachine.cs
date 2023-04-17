@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class PirateStateMachine : MonoBehaviour
@@ -8,7 +9,13 @@ public class PirateStateMachine : MonoBehaviour
     [SerializeField] private int nextAttackTime;
     [SerializeField] internal float timeSinceLostPlayer = 0f;
     internal bool hasLostPlayer = false;
+    public bool isCurrentlyAttacking = false;
     internal float alertStartTime;
+
+    public PlayerHealth pHealth;
+
+    [Header("Attack Parameterse")]
+    [SerializeField] internal BoxCollider attackzone;
 
     internal enum PStateMachine {Idle, Patrolling, Chasing, Alert, Attacking, Searching}
     [SerializeField]
@@ -74,6 +81,7 @@ public class PirateStateMachine : MonoBehaviour
             case PStateMachine.Attacking:
                 pManager.navMeshAgent.speed = 0f;
                 StartCoroutine(AttackingAnim());
+                isCurrentlyAttacking = true;
                     break;
 
                 default: 
@@ -124,6 +132,7 @@ public class PirateStateMachine : MonoBehaviour
         {
             pManager.pAnimator.SetTrigger("isTooFar");
             pCurrentState = PStateMachine.Chasing;
+            isCurrentlyAttacking = false;
         }
         else
         {
@@ -137,5 +146,14 @@ public class PirateStateMachine : MonoBehaviour
         yield return new WaitForSeconds(10);
 
         pCurrentState = PStateMachine.Alert;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+            if (attackzone.isTrigger == true && isCurrentlyAttacking == true)
+            {
+                if (other.CompareTag("Player"))
+                    pHealth.ApplyDamage(51);
+            }
     }
 }
