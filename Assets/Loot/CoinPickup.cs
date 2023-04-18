@@ -12,6 +12,11 @@ public class CoinPickup: Interactable
     [Header("Coin Properties")]
     [SerializeField] private float value = 5;
 
+    private void Start()
+    {
+        pInventory = Component.FindObjectOfType<PlayerInventory>();
+    }
+
     public override void OnFocus()
     {
         Renderer.material.color = Color.yellow;

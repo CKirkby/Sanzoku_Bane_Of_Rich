@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PirateFOV : MonoBehaviour
 {
@@ -26,6 +27,12 @@ public class PirateFOV : MonoBehaviour
     public GameObject playerRef;
     public GameObject castPoint;
 
+    [Header("UI Stealth Detection")]
+    public Image eyeClosed;
+    public Image eyeHalf;
+    public Image eyeOpen;
+    public PirateStateMachine enemyStateMach;
+
     internal void Start()
     {
         StartCoroutine(FOVRoutine());
@@ -35,6 +42,7 @@ public class PirateFOV : MonoBehaviour
     internal void Update()
     {
         Detection();
+        StealthDetection();
     }
 
     internal IEnumerator FOVRoutine()
@@ -104,4 +112,34 @@ public class PirateFOV : MonoBehaviour
         }
     }
 
+    public void StealthDetection()
+    {
+        if (detectionPoints <= 0)
+        {
+            eyeClosed.enabled = true;
+            eyeHalf.enabled = false;
+            eyeOpen.enabled = false;
+        }
+
+        if (detectionPoints > 0)
+        {
+            eyeClosed.enabled = false;
+            eyeHalf.enabled = true;
+            eyeOpen.enabled = false;
+        }
+
+        if (detectionPoints >= 300)
+        {
+            eyeClosed.enabled = false;
+            eyeHalf.enabled = false;
+            eyeOpen.enabled = true;
+        }
+
+        if (detectionPoints < 300 && enemyStateMach.hasLostPlayer == true)
+        {
+            eyeClosed.enabled = false;
+            eyeHalf.enabled = true;
+            eyeOpen.enabled = false;
+        }
+    }
 }

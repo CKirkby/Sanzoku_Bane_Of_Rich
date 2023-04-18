@@ -16,7 +16,7 @@ public class NpcSpawner : MonoBehaviour
 
     IEnumerator NpcSpawnerFunction()
     {
-        while (numOfSpawns < 70)
+        while (numOfSpawns < 50)
         {
             xPos = Random.Range(-80, 37);
             zPos = Random.Range(-3, 4);

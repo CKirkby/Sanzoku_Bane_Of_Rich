@@ -1,8 +1,5 @@
 using Mono.Cecil.Cil;
 using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class IngotPickup: Interactable
@@ -15,6 +12,11 @@ public class IngotPickup: Interactable
 
     [Header("Coin Properties")]
     [SerializeField] private float value = 50;
+
+    private void Start()
+    {
+        pInventory = Component.FindObjectOfType<PlayerInventory>();
+    }
 
     public override void OnFocus()
     {

@@ -18,10 +18,10 @@ public class LootSpawner1 : MonoBehaviour
     IEnumerator LootSpawnerFunction()
     {
         randomLoot = Random.Range(0, loot.Length);
-        while (numOfSpawns < 20)
+        while (numOfSpawns < 40)
         {
-            xPos = Random.Range(-80, 37);
-            zPos = Random.Range(-3, 4);
+            xPos = Random.Range(1, 23);
+            zPos = Random.Range(8, 12);
 
             //Spawns the loot within given vectors of main map. 
             Instantiate(loot[randomLoot], new Vector3(xPos, 0.01f, zPos), Quaternion.identity);

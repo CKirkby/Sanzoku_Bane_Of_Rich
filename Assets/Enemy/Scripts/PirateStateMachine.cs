@@ -21,7 +21,10 @@ public class PirateStateMachine : MonoBehaviour
     [SerializeField]
     internal PStateMachine pCurrentState = PStateMachine.Patrolling ;
 
-
+    private void Start()
+    {
+        pHealth = Component.FindObjectOfType<PlayerHealth>();
+    }
 
 
     void Update()

@@ -12,7 +12,6 @@ public class PirateManager : MonoBehaviour
 
     [Header("Audio Properties")]
     [SerializeField] internal AudioSource pAudioSource;
-    [SerializeField] internal AudioClip[] pWarCry;
 
     [Header("Script Refrences")]
     [SerializeField] internal PirateStateMachine pStateMachine;
