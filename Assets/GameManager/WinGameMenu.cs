@@ -20,11 +20,12 @@ public class WinGameMenu : MonoBehaviour
     void Update()
     {
         winNumver.text = pInventory.score.ToString();
+        Win();
     }
 
     private void Win()
     {
-        if(pInventory.score >= 10000)
+        if(pInventory.score >= 5000)
         {
             winScreen.SetActive(true);
             Time.timeScale = 0;

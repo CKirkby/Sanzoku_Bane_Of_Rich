@@ -13,8 +13,8 @@ public class LoadingScreen : MonoBehaviour
 
     private void Start()
     {
-        loadingScreen.SetActive(true);
-        StartCoroutine(TimeToLoad());
+       loadingScreen.SetActive(true);
+       StartCoroutine(TimeToLoad());
     }
 
     private void Update()
