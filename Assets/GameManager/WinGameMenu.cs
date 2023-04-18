@@ -25,7 +25,7 @@ public class WinGameMenu : MonoBehaviour
 
     private void Win()
     {
-        if(pInventory.score >= 5000)
+        if(pInventory.score >= 500)
         {
             winScreen.SetActive(true);
             Time.timeScale = 0;
