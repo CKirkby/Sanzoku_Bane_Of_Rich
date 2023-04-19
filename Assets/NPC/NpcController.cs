@@ -15,7 +15,6 @@ public class NpcController : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
-
         if(agent != null )
         {
             agent.speed = speed;

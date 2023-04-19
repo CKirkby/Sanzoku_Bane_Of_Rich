@@ -8,7 +8,7 @@ public class PirateStateMachine : MonoBehaviour
     [SerializeField] private int cooldownTime;
     [SerializeField] private int nextAttackTime;
     [SerializeField] internal float timeSinceLostPlayer = 0f;
-    public bool hasLostPlayer = false;
+    internal bool hasLostPlayer = false;
     public bool isCurrentlyAttacking = false;
     internal float alertStartTime;
 
