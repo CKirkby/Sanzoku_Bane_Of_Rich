@@ -11,6 +11,7 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
+        //When pressed play, will load next scene. 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
@@ -22,6 +23,7 @@ public class MainMenu : MonoBehaviour
 
     public void ChangeVolume()
     {
+        //Connects the UI slider to the audio source volume allowing control. 
         audioManager.m_AudioSource.volume = volSlider.value;
     }
 

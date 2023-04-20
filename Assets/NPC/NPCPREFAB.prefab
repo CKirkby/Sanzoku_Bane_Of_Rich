@@ -725,7 +725,7 @@ MonoBehaviour:
   agent: {fileID: 3974937858974709066}
   animator: {fileID: 1439042211508631631}
   speed: 1.9
-  walkRadius: 500
+  walkRadius: 20
 --- !u!195 &3974937858974709066
 NavMeshAgent:
   m_ObjectHideFlags: 0

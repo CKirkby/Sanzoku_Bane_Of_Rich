@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class PirateFOV : MonoBehaviour
 {
+    //Thank you to https://www.youtube.com/@comp3interactive for helping to create this script
+
     [SerializeField]
     internal PirateManager pManager;
 
@@ -42,7 +44,7 @@ public class PirateFOV : MonoBehaviour
     internal void Update()
     {
         Detection();
-        StealthDetection();
+       // StealthDetection();
     }
 
     internal IEnumerator FOVRoutine()
@@ -65,10 +67,12 @@ public class PirateFOV : MonoBehaviour
             Transform target = rangeChecks[0].transform;
             Vector3 directionToTarget = (target.position - castPoint.transform.position).normalized;
 
+            //Creates the anle for the FOV.
             if(Vector3.Angle(castPoint.transform.forward, directionToTarget) < angle / 2)
             {
                 float distanceToTarget = Vector3.Distance(castPoint.transform.position, target.position);
 
+                //If the layermask is not obstruction layer, the playter can now be detected by the raycast within the angle given
                 if (!Physics.Raycast(castPoint.transform.position, directionToTarget, distanceToTarget, obstructionMask))
                 {
                     Debug.Log("I see you");
@@ -89,11 +93,11 @@ public class PirateFOV : MonoBehaviour
         { 
             canSeePlayer = false;
         }
-    
     }
 
     internal void Detection()
     { 
+        //Builds up detection points if player is detected by raycast
         if(canSeePlayer == true)
         {
             detectionPoints++;
@@ -112,7 +116,7 @@ public class PirateFOV : MonoBehaviour
         }
     }
 
-    public void StealthDetection()
+  /*  public void StealthDetection()
     {
         if (detectionPoints <= 0)
         {
@@ -142,4 +146,5 @@ public class PirateFOV : MonoBehaviour
             eyeOpen.enabled = false;
         }
     }
+  */
 }

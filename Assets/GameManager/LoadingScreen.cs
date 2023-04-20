@@ -32,6 +32,7 @@ public class LoadingScreen : MonoBehaviour
 
     private void LoadingBar()
     {
+        //Simlates a loading bar filling up for 4 seconds
         loadingBar.fillAmount += 0.25f * Time.deltaTime;
     }
 }

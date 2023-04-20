@@ -12,6 +12,7 @@ public class PirateSearch : MonoBehaviour
     [SerializeField] internal float range;
     [SerializeField] internal Transform CenterPoint;
 
+    //Choses a random vector within a sphere given by a custom range radius and then walks to it. 
     bool RandomPoint(Vector3 center, float range, out Vector3 result)
     {
         Vector3 randomPoint = center + Random.insideUnitSphere * range;

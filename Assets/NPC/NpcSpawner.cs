@@ -16,6 +16,7 @@ public class NpcSpawner : MonoBehaviour
 
     IEnumerator NpcSpawnerFunction()
     {
+        // If the number of spawns are less then 30, will generate a random position based on given values and instantiate the prefab every 0.1 second.
         while (numOfSpawns < 30)
         {
             xPos = Random.Range(-80, 37);

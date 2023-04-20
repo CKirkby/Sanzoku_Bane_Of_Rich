@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class FirstPersonController : MonoBehaviour
 {
+    // Thank you to https://www.youtube.com/@comp3interactive for helping create this script
 
     public bool CanMove { get; private set; } = true;
     private bool IsSprinting => canSprint && Input.GetKey(sprintKey);
@@ -74,6 +75,7 @@ public class FirstPersonController : MonoBehaviour
     private Vector3 hitPointNormal;
     private bool IsSliding
     {
+        //Creates a raycast to detect if player is on the a slope, if the angel is above or below the limit given by the character controller, and if it is above activate slide, if below remain on slope.
         get
         {
             if(characterController.isGrounded && Physics.Raycast(transform.position, Vector3.down, out RaycastHit slopeHit, 2f))
@@ -125,7 +127,7 @@ public class FirstPersonController : MonoBehaviour
         defaultYPos = playerCamera.transform.localPosition.y;
         defaultFov = playerCamera.fieldOfView;
 
-        //Locks the cursor and hides it unless paused.
+        //Locks the cursor and hides it
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
     }
@@ -163,6 +165,7 @@ public class FirstPersonController : MonoBehaviour
             ApplyFinalMovements();
         }
 
+        //If any of these menus is activated, enables mouse control. 
         if (pMenu.isPaused == true || dMenu.isDead == true || lScreen.isLoading == true)
         {
             Cursor.lockState = CursorLockMode.None;
@@ -177,6 +180,7 @@ public class FirstPersonController : MonoBehaviour
 
     private void MovementInput()
     {
+        // Creates a new vector input for the movement, and changes the speed based on action of player, crouching = crouching speed etc...
         currentInput = new Vector2((isCrouching ? crouchSpeed : IsSprinting ? sprintSpeed : walkSpeed) * Input.GetAxis("Vertical"), (isCrouching ? crouchSpeed : IsSprinting ? sprintSpeed : walkSpeed) * Input.GetAxis("Horizontal"));
 
         float moveDirectionY = moveDirection.y;
@@ -186,6 +190,7 @@ public class FirstPersonController : MonoBehaviour
 
     private void MouseLook()
     {
+        //Creates the input for the mouse based on the X and Y inputs given my the input system.
         {
             rotationX -= Input.GetAxis("Mouse Y") * lookSpeedY;
             rotationX = Mathf.Clamp(rotationX, -upperLookLimit, lowerLookLimit);
@@ -213,6 +218,7 @@ public class FirstPersonController : MonoBehaviour
 
     private void Headbob()
     {
+        //Creates a function using Mathf that calculates the walking vector and using this, transforms the camera to simulate a headbob.
         if (!characterController.isGrounded) return;
 
         if(Mathf.Abs(moveDirection.x) > 0.1f || Mathf.Abs(moveDirection.z) > 0.1f)
@@ -253,6 +259,7 @@ public class FirstPersonController : MonoBehaviour
 
     private void InteractionCheck()
     {
+        //Creates a raycast from the player camera, and checks whether it hits the required layermask, if so will activate OnFocus() function or else LoseFocus()
            if(Physics.Raycast(playerCamera.ViewportPointToRay(interactionRayPoint), out RaycastHit hit, interactionDistance, LayerMask.GetMask("Interactable")))
         {
             if(hit.collider.gameObject.layer == 11 && (currentInteractable == null || hit.collider.gameObject.GetInstanceID() != currentInteractable.GetInstanceID()))
@@ -274,6 +281,7 @@ public class FirstPersonController : MonoBehaviour
 
     private void InteractionInput()
     {
+        //if the raycast is true, and the hit has the right layermask and then the button is pressed then it will call the OnInteract() Function. 
         if(Input.GetKeyDown(interactKey) && currentInteractable != null && Physics.Raycast(playerCamera.ViewportPointToRay(interactionRayPoint), out RaycastHit _hit, interactionDistance, interactionLayer))
         {
             currentInteractable.OnInteract();
@@ -282,6 +290,7 @@ public class FirstPersonController : MonoBehaviour
 
     private IEnumerator ToggleZoom(bool isEnter)
     {
+        //Alters the FOV of the camera and using math.lerp, gives it a smooth fade rather then a snap
         float targetFOV = isEnter ? zoomFov : defaultFov;
         float startingFOV = playerCamera.fieldOfView;
         float timeElasped = 0f;
@@ -299,6 +308,7 @@ public class FirstPersonController : MonoBehaviour
 
     private void ApplyFinalMovements()
     {
+        //Function that lets the character move. If on slope gives slope speed, if on ground normal movement speed. 
         if(!characterController.isGrounded)
             moveDirection.y -= gravity * Time.deltaTime;
 
@@ -310,6 +320,7 @@ public class FirstPersonController : MonoBehaviour
 
     private IEnumerator CrouchStand()
     {
+        //Creates a raycast pointing up from the player, If an obstruction is above them, will not allow them to stand up. 
         if (isCrouching && Physics.Raycast(playerCamera.transform.position, Vector3.up, 1f))
             yield break;
 
@@ -339,6 +350,7 @@ public class FirstPersonController : MonoBehaviour
 
     private void FootSteps()
     {
+        // Calculates the time to play footsteps and then plays footsteps based on what material they are stood upon, using tags. 
         if (!characterController.isGrounded) return;
         if (currentInput == Vector2.zero) return;
 
@@ -370,6 +382,4 @@ public class FirstPersonController : MonoBehaviour
             footstepTimer = GetCurrentOffset;
         }
     }
-
-
 }

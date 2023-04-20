@@ -20,11 +20,13 @@ public class IngotPickup: Interactable
 
     public override void OnFocus()
     {
+        //Changes colour to yellow when looking at item.
         Renderer.material.color = Color.yellow;
     }
 
     public override void OnInteract()
     {
+        //Picks up the item, plays a coin sound and then adds the value to the player score.
         _audioSource.PlayOneShot(audioCollection[Random.Range(0, audioCollection.Length - 1)]);
         pInventory.score = pInventory.score + value;
         StartCoroutine(WaitForSecs());
@@ -32,6 +34,7 @@ public class IngotPickup: Interactable
 
     public override void OnLoseFocus()
     {
+        //When looks away Gives the material its original colour back.
         Renderer.material = originalMat;
     }
 

@@ -105,6 +105,7 @@ public class PirateStateMachine : MonoBehaviour
 
     internal void EndChasing()
     {
+        //Sets the state to alert if the player is not in veiw and detection points are 0.
         if (pManager.pFOV.detectionPoints <= 0 && pManager.pFOV.canSeePlayer == false)
         {
             if(pCurrentState == PStateMachine.Alert && Time.time - alertStartTime > 5f)
@@ -122,12 +123,14 @@ public class PirateStateMachine : MonoBehaviour
 
     private IEnumerator WaitForDrawSword()
     {
+        //Allows the draw sword animation to play before chasing.
         yield return new WaitForSeconds(1.15f);
         pCurrentState = PStateMachine.Chasing;
     }
 
     internal IEnumerator AttackingAnim()
     {
+        //Attacks and then checks if the player is still within attacking distance to either attack again or chase after them.
         pManager.pAnimator.SetTrigger("isAttacking");
         yield return new WaitForSeconds(2f);
       
@@ -153,6 +156,7 @@ public class PirateStateMachine : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        //if the player is within the trigger while the enemy attacks then it will do damage. 
             if (attackzone.isTrigger == true && isCurrentlyAttacking == true)
             {
                 if (other.CompareTag("Player"))

@@ -11,8 +11,8 @@ public class PiratePatrol : MonoBehaviour
     [Header("Patrol Elements")]
     internal float startWaitTime = 4;
     internal float timeToRotate = 2;
-    internal float _WaitTime;
-    internal float _TimeToRotate;
+    //internal float _WaitTime;
+    //internal float _TimeToRotate;
     internal bool isPatrolling = true;
 
     [Header("Waypoints")]

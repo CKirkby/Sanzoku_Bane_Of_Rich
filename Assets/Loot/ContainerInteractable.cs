@@ -19,11 +19,13 @@ public class ContainerInteractable : Interactable
 
     public override void OnFocus()
     {
+        //Changes colour to yellow when looking at item.
         Renderer.material.color = Color.yellow;
     }
 
     public override void OnInteract()
     {
+        //On interact, disables the full prefab for the crate and activates the broken one to stimulate breaking open a crate and then plays audio to match. 
         wholeCrate.enabled = false;
         boxCollider.enabled = false;
         fracturedCrate.SetActive(true);
@@ -35,6 +37,7 @@ public class ContainerInteractable : Interactable
 
     public override void OnLoseFocus()
     {
+        //When looks away Gives the material its original colour back.
         Renderer.material = originalMat;
     }
 

@@ -29,13 +29,13 @@ public class PlayerHealth : MonoBehaviour
         OnTakeDamage -= ApplyDamage;
     }
 
-    // Start is called before the first frame update
     private void Awake()
     {
         currentHealth = maxHealth;
     }
 
     public void ApplyDamage(float damage)
+        //When damage is applied, if not dead, will start coroutine to regen health. 
     {
         currentHealth -= damage;
         OnDamage?.Invoke(currentHealth);
@@ -53,6 +53,7 @@ public class PlayerHealth : MonoBehaviour
     }
 
     public void killPlayer()
+        //If hp is 0 will stop regen health and activate the UI death screen.
     {
         currentHealth = 0;
 
@@ -65,6 +66,8 @@ public class PlayerHealth : MonoBehaviour
 
     private IEnumerator RegenerateHealth()
     {
+        //Detects when hp is less then max health and creates an waitforseconds to increase health by the determined increment of time i.e. every 0.1 of a second. 
+
         yield return new WaitForSeconds(timeForRegenStart);
 
         WaitForSeconds timeToWait = new WaitForSeconds(healthTimeIncrement);

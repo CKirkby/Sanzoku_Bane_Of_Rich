@@ -15,7 +15,6 @@ public class DeathMenu : MonoBehaviour
     public GameObject deathScreen;
     public PlayerHealth pHealth;
     [SerializeField] private TextMeshProUGUI scoreNumber = default;
-    [SerializeField] private TextMeshProUGUI winNumver = default;
     public PlayerInventory pInventory;
 
     void Start()

@@ -10,13 +10,11 @@ public class WinGameMenu : MonoBehaviour
     public PlayerInventory pInventory;
     public GameObject winScreen;
 
-    // Start is called before the first frame update
     void Start()
     {
         winScreen.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
         winNumver.text = pInventory.score.ToString();
@@ -25,10 +23,10 @@ public class WinGameMenu : MonoBehaviour
 
     private void Win()
     {
+        //If the player gets the required score , activates the win screen.
         if(pInventory.score >= 500)
         {
             winScreen.SetActive(true);
-            Time.timeScale = 0;
         }
     }
 }
