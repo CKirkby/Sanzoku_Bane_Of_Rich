@@ -5,6 +5,7 @@ using UnityEngine;
 public class PirateStateMachine : MonoBehaviour
 {
     [SerializeField] PirateManager pManager;
+    public DetectionHandler detectHandler;
     [SerializeField] private int cooldownTime;
     [SerializeField] private int nextAttackTime;
     [SerializeField] internal float timeSinceLostPlayer = 0f;
@@ -24,6 +25,7 @@ public class PirateStateMachine : MonoBehaviour
     private void Start()
     {
         pHealth = Component.FindObjectOfType<PlayerHealth>();
+        detectHandler = Component.FindObjectOfType<DetectionHandler>();
     }
 
 
@@ -96,7 +98,7 @@ public class PirateStateMachine : MonoBehaviour
 
     internal void StartChasing()
     {
-        if(pManager.pFOV.detectionPoints >= 300)
+        if(detectHandler.detectionPoints >= 300)
         {
                 pManager.pAnimator.SetTrigger("hasSeenPlayer");
                 StartCoroutine(WaitForDrawSword());
@@ -106,7 +108,7 @@ public class PirateStateMachine : MonoBehaviour
     internal void EndChasing()
     {
         //Sets the state to alert if the player is not in veiw and detection points are 0.
-        if (pManager.pFOV.detectionPoints <= 0 && pManager.pFOV.canSeePlayer == false)
+        if (detectHandler.detectionPoints <= 0 && pManager.pFOV.canSeePlayer == false)
         {
             if(pCurrentState == PStateMachine.Alert && Time.time - alertStartTime > 5f)
             {

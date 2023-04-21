@@ -16,35 +16,27 @@ public class PirateFOV : MonoBehaviour
 
     [Header("FOV Options")]
     public float radius;
-    [Range(0,360)]
+    [Range(0, 360)]
     public float angle;
 
     [Header("Detection Elements")]
     public bool canSeePlayer;
-    [Range (1, 300)]
-    [SerializeField] internal float detectionPoints;
 
     [Header("Auxillary Elements")]
     public bool hasSeenPlayerFirstTime = false;
     public GameObject playerRef;
     public GameObject castPoint;
-
-    [Header("UI Stealth Detection")]
-    public Image eyeClosed;
-    public Image eyeHalf;
-    public Image eyeOpen;
-    public PirateStateMachine enemyStateMach;
+    public DetectionHandler detectionHandler;
 
     internal void Start()
     {
         StartCoroutine(FOVRoutine());
-        detectionPoints = 0;
+        detectionHandler = Component.FindObjectOfType<DetectionHandler>();
     }
 
     internal void Update()
     {
-        Detection();
-       // StealthDetection();
+
     }
 
     internal IEnumerator FOVRoutine()
@@ -62,13 +54,13 @@ public class PirateFOV : MonoBehaviour
     {
         Collider[] rangeChecks = Physics.OverlapSphere(castPoint.transform.position, radius, targetMask);
 
-        if(rangeChecks.Length > 0 )
+        if (rangeChecks.Length > 0)
         {
             Transform target = rangeChecks[0].transform;
             Vector3 directionToTarget = (target.position - castPoint.transform.position).normalized;
 
             //Creates the anle for the FOV.
-            if(Vector3.Angle(castPoint.transform.forward, directionToTarget) < angle / 2)
+            if (Vector3.Angle(castPoint.transform.forward, directionToTarget) < angle / 2)
             {
                 float distanceToTarget = Vector3.Distance(castPoint.transform.position, target.position);
 
@@ -77,7 +69,6 @@ public class PirateFOV : MonoBehaviour
                 {
                     Debug.Log("I see you");
                     canSeePlayer = true;
-                    Detection();
                 }
                 else
                 {
@@ -90,61 +81,8 @@ public class PirateFOV : MonoBehaviour
             }
         }
         else if (canSeePlayer)
-        { 
+        {
             canSeePlayer = false;
         }
     }
-
-    internal void Detection()
-    { 
-        //Builds up detection points if player is detected by raycast
-        if(canSeePlayer == true)
-        {
-            detectionPoints++;
-            if (detectionPoints > 300)
-            {
-                detectionPoints = 300;
-            }
-        }
-        else
-        {
-            detectionPoints -= 25 * Time.deltaTime;
-            if(detectionPoints < 0)
-            {
-                detectionPoints = 0;
-            }
-        }
-    }
-
-  /*  public void StealthDetection()
-    {
-        if (detectionPoints <= 0)
-        {
-            eyeClosed.enabled = true;
-            eyeHalf.enabled = false;
-            eyeOpen.enabled = false;
-        }
-
-        if (detectionPoints > 0)
-        {
-            eyeClosed.enabled = false;
-            eyeHalf.enabled = true;
-            eyeOpen.enabled = false;
-        }
-
-        if (detectionPoints >= 300)
-        {
-            eyeClosed.enabled = false;
-            eyeHalf.enabled = false;
-            eyeOpen.enabled = true;
-        }
-
-        if (detectionPoints < 300 && enemyStateMach.hasLostPlayer == true)
-        {
-            eyeClosed.enabled = false;
-            eyeHalf.enabled = true;
-            eyeOpen.enabled = false;
-        }
-    }
-  */
 }
