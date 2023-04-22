@@ -24,7 +24,7 @@ public class WinGameMenu : MonoBehaviour
     private void Win()
     {
         //If the player gets the required score , activates the win screen.
-        if(pInventory.score >= 500)
+        if(pInventory.score >= 5000)
         {
             winScreen.SetActive(true);
         }
