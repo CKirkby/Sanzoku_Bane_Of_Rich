@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 63
+  controlID: 41
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 64
+  controlID: 42
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 65
+  controlID: 43
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -340,9 +340,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: 04150000
       m_LastClickedID: 0
-      m_ExpandedIDs: 563bf7ffb03bf7ff02d1f7ff10d1f7ff8eeaf7ffa0eef7ff2c2af9ff8631fdff409cffff78c7ffffa2c8ffff16fbffff766b00006c6c0000a86c0000006e0000206e0000286e0000486e0000546e0000706e0000846e00009c6e0000a06e0000b06e0000506f0000666f00004a700000ae700000b2700000c2700000ce7000000c7100004a7100006e710000767100004c720000cc720000107300005c730000be730000fe73000044740000667400009874000016750000267500009e7500004a7600004e7600001c770000c8770000e87800007e790000087a0000847a0000f67a0000fa7a0000427b00004a7b00001e7c00002a7c0000427c0000b47c0000527d0000ae7d0000be7d0000f07e0000187f00002e7f0000487f00007c7f00008c7f00004480000050800000608000008a81000022820000388200006e820000ba820000e8830000fa830000dc840000e484000086850000a2850000288600004886000084860000668700008e87000092870000fa8700006c880000ce8900002a8a0000768a0000e08a0000248b00003a8b0000668b00006a8b0000988b0000c88b0000428c0000a88c0000c08c0000c88c0000f68c0000568d0000888d0000da8f00002490000008910000dc91000000920000b6e71500
+      m_ExpandedIDs: 16fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -638,7 +638,7 @@ MonoBehaviour:
   m_Position:
     m_Target: {x: 525.2541, y: 327.30615, z: -354.5663}
     speed: 2
-    m_Value: {x: 549.70056, y: 329.80856, z: -354.70828}
+    m_Value: {x: 525.2541, y: 327.30615, z: -354.5663}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -691,7 +691,7 @@ MonoBehaviour:
   m_Size:
     m_Target: 301.27682
     speed: 2
-    m_Value: 315.4731
+    m_Value: 301.27682
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -709,7 +709,7 @@ MonoBehaviour:
     m_FarClip: 10000
     m_DynamicClip: 1
     m_OcclusionCulling: 0
-  m_LastSceneViewRotation: {x: -0.017604096, y: 0.06291889, z: 0.002281337, w: 0.99919444}
+  m_LastSceneViewRotation: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
   m_LastSceneViewOrtho: 0
   m_ReplacementShader: {fileID: 0}
   m_ReplacementString: 
@@ -986,22 +986,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Imports/Fantasy Wooden GUI  Free/normal_ui_set A
+    - Assets/Loot
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Imports/Fantasy Wooden GUI  Free/normal_ui_set A
+  - Assets/Loot
   m_LastFoldersGridSize: 64
   m_LastProjectPath: D:\GitHub\Sanzoku - Bane of the Rich
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: e4e71500
-    m_LastClickedID: 1435620
-    m_ExpandedIDs: 0000000028aa00004aab00004eab000050ab000058ab000068ab000098c300009ac300009ec30000aec30000c2c30000fac9000000ca9a3b
+    m_SelectedIDs: 866e0000
+    m_LastClickedID: 28294
+    m_ExpandedIDs: 00000000746e0000846e0000926e000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1029,7 +1029,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000028aa0000
+    m_ExpandedIDs: 00000000746e0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1056,7 +1056,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c62300001683000014830000148a0000806d00002c8d00003c7d0000ba800000d86e00006e94010010ae01005a8100006c8200003cb80000aec50000e6c70000fef8010006810000389c01004682000098830000e23700003a850000e66b00005a7c0000eaaf00006ed10000bc170100da170100083300000a330000800c01007eff000072ff00009e6c0000ba090200bc0a03007cb811002ce50800d0b50000a0bc000000000000d676060038750600c6a30c00fceb0b00f6eb0b00e8eb0b00eceb0b0012ed000068ed00009ab80400
     m_RenameOverlay:
       m_UserAcceptedRename: 0
